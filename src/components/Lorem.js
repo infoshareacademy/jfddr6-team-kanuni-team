@@ -1,3 +1,4 @@
+//To jest generator tekstu
 const Text= () => {
     
     return (
