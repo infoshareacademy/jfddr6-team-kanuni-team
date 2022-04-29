@@ -4,11 +4,11 @@ const Contact = () => {
 
     return (
         <form>
-            <label className="head">Kontakt</label>
+            <h2 className="head">Kontakt</h2>
             <input className="mailArea" type="text" placeholder="twójemail@op.pl" />
 
             <textarea rows="10" cols="50" className="questionArea" placeholder="Masz pytanie? Napisz do nas" />
-            <input className="sendBtn" type="submit" value="wyślij" />
+            <button className="sendBtn">Wyślij</button>
         </form>
        
     );
