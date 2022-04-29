@@ -1,12 +1,16 @@
-import Offer from "./Offer";
-import Header from "./Header"
+import Offer from '../components/Offer/Offer.js';
+import Header from '../components/Header/Header.js';
+import Prices from '../components/Prices/Prices.js';
+import Contact from '../components/Contact/Contact.js';
 
 const Home = () => {
   return (
-  <>
-  <Header />
-  <Offer />
-  </>
+    <>
+      <Header />
+      <Offer />
+      <Prices />
+      <Contact />
+    </>
   );
 };
 
