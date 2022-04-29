@@ -1,5 +1,13 @@
+import Offer from "./Offer";
+import Header from "./Header"
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+  <>
+  <Header />
+  <Offer />
+  </>
+  );
 };
 
 export default Home;
