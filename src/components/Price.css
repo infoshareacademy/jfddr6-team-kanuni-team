@@ -1,0 +1,7 @@
+.price{
+    margin: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: lightgray;
+    min-width: 210px;
+}
