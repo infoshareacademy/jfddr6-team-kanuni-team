@@ -3,8 +3,6 @@ import Button from "./Button";
 import "./Offer.css"
 const Offer = () => {
 
-
-
     return(
 
         <div className="contentOffer">
