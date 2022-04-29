@@ -1,5 +1,5 @@
-import Lorem from './Lorem';
-import Button from './Button';
+import Lorem from '../Auxiliary/Lorem.js';
+import Button from '../Auxiliary/Button.js';
 import './Offer.css';
 const Offer = () => {
   return (

@@ -1,4 +1,4 @@
-import "./Price.css";
+import './Price.css';
 const Price = ({ header, paragraph, price }) => {
   return (
     <div className="price">
