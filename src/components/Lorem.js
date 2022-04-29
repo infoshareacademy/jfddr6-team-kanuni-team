@@ -1,5 +1,6 @@
-const Lorem= () => {
-    
+//To jest generator tekstu
+const Text= () => {
+
     return (
 
     <p>Duis sapien urna, rhoncus non metus vitae, iaculis molestie nisi. Aenean quis accumsan diam. Aenean gravida augue libero, a tincidunt libero porta nec. In varius ligula sit amet arcu aliquam porta. Donec at felis sollicitudin, volutpat turpis vitae, eleifend enim. Aliquam dignissim orci ac sapien ultricies blandit. Sed pretium, tellus vitae ullamcorper condimentum,
@@ -8,4 +9,4 @@ const Lorem= () => {
     )
 }
 
-export default Lorem; 
+export default Text; 
