@@ -1,5 +1,13 @@
+import AddNewVisit from "./AddNewVisit.js";
+
 const UserDashboard = () => {
-  return <div>User Dashboard</div>;
+  return (
+    <div>
+      <h2>Panel użytkownika</h2>
+      <AddNewVisit />
+
+    </div>
+  );
 };
 
 export default UserDashboard;
