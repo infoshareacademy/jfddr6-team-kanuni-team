@@ -1,11 +1,13 @@
 import Offer from "./Offer";
-import Header from "./Header"
+import Header from "./Header";
+import Prices from "./Prices.js";
 
 const Home = () => {
   return (
   <>
   <Header />
   <Offer />
+  <Prices />
   </>
   );
 };

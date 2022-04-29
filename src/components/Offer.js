@@ -11,7 +11,7 @@ const Offer = () => {
                 <div className="aboutUs">
                         <Lorem />
                 </div>
-                <button onClick={Button}>Umów się na wizytę</button>
+                <button className="buttonOffer" onClick={Button}>Umów się na wizytę</button>
         </div>
 
     )
