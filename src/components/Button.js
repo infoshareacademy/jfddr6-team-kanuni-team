@@ -1,9 +1,7 @@
-const Button = (e) => {
-    e.preventDefault();
-    
-    return(
-        console.log("umawiam")
-    )
-}
+const Button = ({ buttonText, onClick, className }) => (
+  <button onClick={onClick} className={className}>
+    {buttonText}
+  </button>
+);
 
 export default Button;
