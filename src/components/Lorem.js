@@ -1,4 +1,4 @@
-const Text= () => {
+const Lorem= () => {
     
     return (
 
@@ -8,4 +8,4 @@ const Text= () => {
     )
 }
 
-export default Text; 
+export default Lorem; 

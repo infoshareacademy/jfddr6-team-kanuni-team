@@ -1,7 +1,11 @@
+import Offer from "./Offer";
+import Header from "./Header"
+
 const Home = () => {
   return (
   <>
-  <div>home</div>
+  <Header />
+  <Offer />
   </>
   );
 };
