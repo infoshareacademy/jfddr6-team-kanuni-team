@@ -3,6 +3,7 @@ import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './components/Login/Login.js';
 
 function App() {
   return (
