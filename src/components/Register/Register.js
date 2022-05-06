@@ -1,3 +1,5 @@
+// komponent z formularzem i logiką do rejestracji
+
 import { useState } from 'react';
 import Button from '../Auxiliary/Button';
 import { createUserWithEmailAndPassword } from 'firebase/auth';

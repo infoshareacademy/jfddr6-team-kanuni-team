@@ -1,8 +1,10 @@
+//komponent który wyświetla się jak jesteśmy zalogowani oraz posiada button do wylogowania
+
 import Button from '../Auxiliary/Button';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../data/db';
 
-const Logged = ({ isAuth, setIsAuth }) => {
+const Logged = ({ isAuth }) => {
   const signOutUser = () => {
     signOut(auth);
   };

@@ -9,8 +9,8 @@ import { useState } from 'react';
 import Logged from './components/Logged/Logged.js';
 
 function App() {
+  //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
   const [isAuth, setIsAuth] = useState(false);
-
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setIsAuth(user.email);
@@ -21,9 +21,8 @@ function App() {
 
   return (
     <div>
-      {isAuth && <Logged isAuth={isAuth} setIsAuth={setIsAuth} />}
-
-      <Navbar />
+      {/* jeżeli użytkownik jest zalogowany to wyświetli komponent Logged */}
+      {isAuth && <Logged isAuth={isAuth} setIsAuth={setIsAuth} />} <Navbar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

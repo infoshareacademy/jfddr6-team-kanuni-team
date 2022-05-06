@@ -1,3 +1,5 @@
+//komponent z formularzem i logiką do zalogowania
+
 import { useState } from 'react';
 import Button from '../Auxiliary/Button';
 import { auth } from '../../data/db';
