@@ -2,7 +2,7 @@
 
 .header {
   width: 100vw;
-  height: 30vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,4 +15,10 @@
   font-weight: 100;
   font-size: 3rem;
   font-family: Bungee Outline;
+}
+
+.banerImg{
+  width: 90vw;
+  height: auto;
+  
 }

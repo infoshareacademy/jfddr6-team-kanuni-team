@@ -1,32 +1,86 @@
+/*prawa strona */
+
+.contactContenet {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: auto;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+  margin-top:5rem;
+  margin-bottom:5rem;
+}
+
+.callUs{
+height: 20vh;
+ align-self: center;
+}
+.callUs>p{
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.618);
+  font-family: Lato;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
+p+p{
+  font-weight: 200;
+}
+
+/*lewa strona*/
+
 form {
-  width: 400px;
-  height: 250px;
-  padding: 20px;
+  width: 80vh;
+  height: 20rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  background-color: grey;
-  border-radius: 25px;
+  background-color: rgba(110, 132, 179, 0.31);
+  border-radius: 1rem;
 }
 
 .head {
   flex-grow: 0;
   align-self: center;
-  color: rgb(207, 205, 205);
+  color: rgba(245, 245, 245, 0.618);
+  text-transform: uppercase;
+  font-family: Lato;
+  font-weight: 300;
+  letter-spacing: 4px;
+  font-size: 2rem;
+  margin-top: 0.2rem;
 }
 
 .mailArea {
   flex-grow: 0;
+  flex-grow: 0;
+  font: 0.7rem Lato;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  resize: none;
+  border: none;
+  background-color: rgba(245, 245, 245, 0.201);
 }
 
 .questionArea {
   flex-grow: 0;
-  font: 13px Tahoma;
+  font: 1rem Lato;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 2px;
   resize: none;
+  background-color: rgba(245, 245, 245, 0.201);
+}
+
+::placeholder{
+  color: rgba(245, 245, 245, 0.618);
 }
 
 .sendBtn {
-  border-radius: 5px;
-  background-color: white;
+  background-color: rgba(245, 245, 245, 0.201);
+  border: none;
+  color: rgba(245, 245, 245, 0.618);
 }
 
 .sendBtn:hover {
