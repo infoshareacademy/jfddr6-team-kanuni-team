@@ -1,31 +1,43 @@
 import { useState } from 'react';
 import Button from '../Auxiliary/Button';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { setDoc, doc } from 'firebase/firestore';
-import { auth } from '../../data/db';
+import { doc, setDoc } from 'firebase/firestore';
+import { auth, db } from '../../data/db';
 
 const Register = () => {
   const [nameInput, setNameInput] = useState('');
   const [lastNameInput, setLastNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
-  const [userID, setUserID] = useState('');
 
-  const registerAuth = async (email, password) => {
-    const response = await createUserWithEmailAndPassword(auth, email, password).then((res) =>
-      setUserID(res.user.uid),
-    );
-    // console.log(response.user.uid);
-    // setUserID(response.user.uid);
+  const registerAuth = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const createUser = async () => {
+    const userName = nameInput;
+    const userLastName = lastNameInput;
+    const userEmail = emailInput;
+    const pass = passwordInput;
+
+    await setDoc(doc(db, 'users', userEmail), {
+      name: userName,
+      lastName: userLastName,
+      email: userEmail,
+      password: pass,
+    });
   };
 
   const handlerRegister = (e) => {
     e.preventDefault();
     registerAuth(emailInput, passwordInput);
-    console.log(emailInput, passwordInput, nameInput, lastNameInput, userID);
-    // setEmailInput('');
-    // setPasswordInput('');
+    createUser();
+    setNameInput('');
+    setLastNameInput('');
+    setEmailInput('');
+    setPasswordInput('');
   };
+
   return (
     <form onSubmit={(e) => handlerRegister(e)}>
       <label htmlFor="name">Imię: </label>

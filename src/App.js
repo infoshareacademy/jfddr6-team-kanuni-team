@@ -3,13 +3,10 @@ import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './components/Login/Login.js';
-import Register from './components/Register/Register.js';
 
 function App() {
   return (
     <div>
-      <Register />
       <Navbar />
       <BrowserRouter>
         <Routes>
