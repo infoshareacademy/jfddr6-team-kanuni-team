@@ -23,10 +23,6 @@ function App() {
 
   return (
     <div>
-      <Register />
-      <Login />
-      {/* jeżeli użytkownik jest zalogowany to wyświetli komponent Logged */}
-      {isAuth && <Logged isAuth={isAuth} setIsAuth={setIsAuth} />}
       <Navbar />
       <BrowserRouter>
         <Routes>
