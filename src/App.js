@@ -7,6 +7,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
 import Logged from './components/Logged/Logged.js';
+import Register from './components/Register/Register.js';
+import Login from './components/Login/Login.js';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
@@ -21,8 +23,11 @@ function App() {
 
   return (
     <div>
+      <Register />
+      <Login />
       {/* jeżeli użytkownik jest zalogowany to wyświetli komponent Logged */}
-      {isAuth && <Logged isAuth={isAuth} setIsAuth={setIsAuth} />} <Navbar />
+      {isAuth && <Logged isAuth={isAuth} setIsAuth={setIsAuth} />}
+      <Navbar />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

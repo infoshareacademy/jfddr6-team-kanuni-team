@@ -6,38 +6,36 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../data/db';
 
+const registerUser = async (email, password) => {
+  // todo nazwa auth user
+  const response = await createUserWithEmailAndPassword(auth, email, password);
+  // console.log(response.user.uid);
+  return response.user;
+};
+
+const createUser = async ({ id, name, lastName }) => {
+  await setDoc(doc(db, 'users', id), {
+    name,
+    lastName,
+  });
+};
+
 const Register = () => {
   const [nameInput, setNameInput] = useState('');
   const [lastNameInput, setLastNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
-  const registerAuth = (email, password) => {
-    createUserWithEmailAndPassword(auth, email, password);
-  };
-
-  const createUser = async () => {
-    const userName = nameInput;
-    const userLastName = lastNameInput;
-    const userEmail = emailInput;
-    const pass = passwordInput;
-
-    await setDoc(doc(db, 'users', userEmail), {
-      name: userName,
-      lastName: userLastName,
-      email: userEmail,
-      password: pass,
-    });
-  };
-
-  const handlerRegister = (e) => {
+  const handlerRegister = async (e) => {
     e.preventDefault();
-    registerAuth(emailInput, passwordInput);
-    createUser();
-    setNameInput('');
-    setLastNameInput('');
-    setEmailInput('');
-    setPasswordInput('');
+    const registeredUser = await registerUser(emailInput, passwordInput);
+    const userId = registeredUser.uid;
+    console.log({ userId });
+    await createUser({ id: userId, name: nameInput, lastName: lastNameInput }); //todo zmienić nazwę
+    // setNameInput('');
+    // setLastNameInput('');
+    // setEmailInput('');
+    // setPasswordInput('');
   };
 
   return (
