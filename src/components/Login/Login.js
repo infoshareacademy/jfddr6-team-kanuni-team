@@ -1,5 +1,5 @@
 //komponent z formularzem i logiką do zalogowania
-
+import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 import Button from '../Auxiliary/Button';
 import { auth } from '../../data/db';
@@ -45,6 +45,7 @@ const Login = () => {
         />
         <Button buttonText={'Zaloguj'} />
       </form>
+      <h2>Nie masz konta? <Button buttonText={'Zarejestruj się'} /><NavLink to="/register" /></h2>
     </>
   );
 };
