@@ -4,15 +4,19 @@ import { useState } from 'react';
 import Button from '../Auxiliary/Button';
 import { auth } from '../../data/db';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
+  let navigate = useNavigate();
+
   const loginUser = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password);
     setEmailInput('');
     setPasswordInput('');
+    navigate('/userdashboard');
   };
 
   const handlerLogIn = async (e) => {

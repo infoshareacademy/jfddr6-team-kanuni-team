@@ -5,6 +5,7 @@ import Button from '../Auxiliary/Button';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../data/db';
+import { useNavigate } from 'react-router-dom';
 
 const registerUserAuth = async (email, password) => {
   // todo nazwa auth user
@@ -36,6 +37,8 @@ const createUserMetaDate = async ({ id, name, lastName }) => {
 };
 
 const Register = () => {
+  let navigate = useNavigate();
+
   const [nameInput, setNameInput] = useState('');
   const [lastNameInput, setLastNameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
@@ -50,6 +53,7 @@ const Register = () => {
     setLastNameInput('');
     setEmailInput('');
     setPasswordInput('');
+    navigate('/userdashboard');
   };
 
   return (
