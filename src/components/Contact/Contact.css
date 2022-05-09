@@ -1,6 +1,6 @@
 /*prawa strona */
 
-.contactContenet {
+.contentContact {
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -52,7 +52,6 @@ form {
 }
 
 .mailArea {
-  flex-grow: 0;
   flex-grow: 0;
   font: 0.7rem Lato;
   text-transform: uppercase;

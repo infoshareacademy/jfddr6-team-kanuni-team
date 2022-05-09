@@ -2,7 +2,7 @@ import './Contact.css';
 
 const Contact = () => {
   return (
-    <div className="contactContenet">
+    <div className="contentContact">
       <form>
         <h2 className="head">Kontakt</h2>
         <input className="mailArea" type="text" placeholder="twójemail@op.pl" />
