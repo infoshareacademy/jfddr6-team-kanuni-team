@@ -2,7 +2,7 @@ import Footer from './components/Footer/Footer.js';
 import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
@@ -22,14 +22,13 @@ function App() {
 
   return (
     <div>
-      <Navbar />
       <BrowserRouter>
+      <Navbar isAuth={isAuth} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/userdashboard" element={<UserDashboard isAuth={isAuth} />} />
-          <Route path="/userdashboard" element={<UserDashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={ isAuth ? <Navigate to="/userdashboard" />: <Home />} />
+          <Route path="/userdashboard" element={ !isAuth ? <Navigate to="/" />: <UserDashboard />} />
+          <Route path="/login" element={ isAuth ? <Navigate to="/userdashboard" />:<Login />} />
+          <Route path="/register" element={ isAuth ? <Navigate to="/userdashboard" />:<Register />} />
         </Routes>
       </BrowserRouter>
       <Footer />

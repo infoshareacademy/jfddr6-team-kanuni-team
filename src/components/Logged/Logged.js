@@ -7,6 +7,7 @@ import { auth } from '../../data/db';
 const Logged = ({ isAuth }) => {
   const signOutUser = () => {
     signOut(auth);
+    
   };
 
   return (
