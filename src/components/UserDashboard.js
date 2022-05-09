@@ -1,8 +1,6 @@
-
 import { NavLink } from 'react-router-dom';
-import Button from './Auxiliary/Button.js';
-import Header from './Header/Header.js';
-
+import Button from './Auxiliary/Button';
+import Header from './Header/Header';
 
 const UserDashboard = () => {
   return (

@@ -8,6 +8,7 @@ import { auth } from './data/db';
 import { useState } from 'react';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
@@ -23,12 +24,20 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar isAuth={isAuth} />
+        <Navbar isAuth={isAuth} />
         <Routes>
-          <Route path="/" element={ isAuth ? <Navigate to="/userdashboard" />: <Home />} />
-          <Route path="/userdashboard" element={ !isAuth ? <Navigate to="/" />: <UserDashboard />} />
-          <Route path="/login" element={ isAuth ? <Navigate to="/userdashboard" />:<Login />} />
-          <Route path="/register" element={ isAuth ? <Navigate to="/userdashboard" />:<Register />} />
+          {isAuth ? (
+            <>
+              <Route path="/userdashboard" element={<UserDashboard />} />
+              <Route path="/userdashboard/addnewvisit" element={<AddNewVisit />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </>
+          )}
         </Routes>
       </BrowserRouter>
       <Footer />
