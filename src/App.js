@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
@@ -25,6 +27,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/userdashboard" element={<UserDashboard isAuth={isAuth} />} />
+          <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
       <Footer />

@@ -1,7 +1,22 @@
-.prices {
+body{
+  background-color: #5d5f65;
+  margin: 0;
+}
+
+.pricesContent{
   display: flex;
-  flex-direction: row;
-  border: 1px solid black;
+  width: 100vw;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-content: center;
+}
+
+.prices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-gap: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.187);
+  padding: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
