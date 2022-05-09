@@ -1,4 +1,8 @@
-import Header from "./Header/Header";
+
+import { NavLink } from 'react-router-dom';
+import Button from './Auxiliary/Button.js';
+import Header from './Header/Header.js';
+
 
 const UserDashboard = () => {
   return (
@@ -7,19 +11,20 @@ const UserDashboard = () => {
       <div>
         <div>
           <h3>Twoje zaplanowane wizyty:</h3>
-          <div> wizyta/brak wizyt <button>Anuluj</button> </div>
+          <div>
+            {' '}
+            wizyta/brak wizyt <button>Anuluj</button>{' '}
+          </div>
         </div>
-        <button>Umów Wizytę</button>
+        <Button>
+          <NavLink to="/userdashboard/addnewvisit">Umów wizytę</NavLink>
+        </Button>
         <div>
           <h3>Twoje zrealizowane wizyty:</h3>
           <div>00/00/00 NazwaPakietu</div>
         </div>
-
       </div>
     </>
-
   );
-
 };
-
 export default UserDashboard;
