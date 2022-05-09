@@ -1,13 +1,25 @@
-import AddNewVisit from "./AddNewVisit.js";
+import Header from "./Header/Header";
 
 const UserDashboard = () => {
   return (
-    <div>
-      <h2>Panel użytkownika</h2>
-      <AddNewVisit />
+    <>
+      <Header />
+      <div>
+        <div>
+          <h3>Twoje zaplanowane wizyty:</h3>
+          <div> wizyta/brak wizyt <button>Anuluj</button> </div>
+        </div>
+        <button>Umów Wizytę</button>
+        <div>
+          <h3>Twoje zrealizowane wizyty:</h3>
+          <div>00/00/00 NazwaPakietu</div>
+        </div>
 
-    </div>
+      </div>
+    </>
+
   );
+
 };
 
 export default UserDashboard;
