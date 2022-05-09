@@ -2,11 +2,11 @@ import Logo from '../NavbarElements/Logo.js';
 import NavbarLinks from '../NavbarElements/NavbarLinks.js';
 import "./Navbar.css"
 
-const Navbar = () => {
+const Navbar = ({isAuth}) => {
   return (
     <div className="navbar">
       <Logo />
-      <NavbarLinks />
+      <NavbarLinks isAuth={isAuth}/>
     </div>
   );
 };
