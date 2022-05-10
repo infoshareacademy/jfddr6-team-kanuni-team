@@ -13,17 +13,12 @@ const UserDashboard = ({ user }) => {
     const q = query(visitsCollection, where('mail', '==', user));
     const visitsDocuments = await getDocs(q);
 
-    console.log(user)
-
-    const visitsList = visitsDocuments.docs.map((doc) => ({
+    const [currentUser] = visitsDocuments.docs.map((doc) => ({
       id: doc.id,
-      data: doc.data(),
+      ...doc.data(),
     }));
-    setVisits(visitsList);
-    console.log(visitsList)
+    setVisits(currentUser.visits);
   };
-
-  console.log(visits)
 
   useEffect(() => {
     getVisits();
@@ -36,13 +31,13 @@ const UserDashboard = ({ user }) => {
         <div>
           <h3>Zaplanowane wizyty dla {user} </h3>
           <div>
-            {visits.map((visit) => (
-              <div key={visit.id} className={'Ewa'}>
-                {console.log("Ewa", visit.data.visits[0].package, visit.data.visits[0].date.seconds)}
-                <p>Twoja wizyta: {visit.data.mail}</p>
-                <p>{visit.data.visits[0].package} {visit.data.visits[0].date.seconds}</p>
+            {visits.map((visit) => {
+             let serviceDate = new Date(visit.date.seconds);
+             return (
+              <div key={visit.date.seconds}>
+                <p>Twoja wizyta: {visit.package} {serviceDate}</p>
               </div>
-            ))}
+            )})}
           </div>
         </div>
         <Button>
