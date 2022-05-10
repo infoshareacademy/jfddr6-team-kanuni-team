@@ -28,7 +28,7 @@ function App() {
         <Routes>
           {isAuth ? (
             <>
-              <Route path="/userdashboard" element={<UserDashboard />} />
+              <Route path="/userdashboard" element={<UserDashboard user={isAuth} />}  />
               <Route path="/userdashboard/addnewvisit" element={<AddNewVisit />} />
             </>
           ) : (

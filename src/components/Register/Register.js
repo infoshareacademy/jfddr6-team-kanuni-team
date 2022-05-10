@@ -29,10 +29,11 @@ const registerUserAuth = async (email, password) => {
   return response.user;
 };
 
-const createUserMetaDate = async ({ id, name, lastName }) => {
+const createUserMetaDate = async ({ id, name, lastName, mail }) => {
   await setDoc(doc(db, 'users', id), {
     name,
     lastName,
+    mail,
   });
 };
 
@@ -48,7 +49,12 @@ const Register = () => {
     e.preventDefault();
     const registeredUser = await registerUserAuth(emailInput, passwordInput);
     const userId = registeredUser.uid;
-    await createUserMetaDate({ id: userId, name: nameInput, lastName: lastNameInput }); //todo zmienić nazwę
+    await createUserMetaDate({
+      id: userId,
+      name: nameInput,
+      lastName: lastNameInput,
+      mail: emailInput,
+    }); //todo zmienić nazwę
     setNameInput('');
     setLastNameInput('');
     setEmailInput('');
