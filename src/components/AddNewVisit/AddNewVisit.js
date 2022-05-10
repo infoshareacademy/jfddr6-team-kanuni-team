@@ -1,3 +1,5 @@
+//Komponent posiadający logikę dodawania nowej wizyty do firebase
+
 import { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import Button from '../Auxiliary/Button';
@@ -6,24 +8,28 @@ import { arrayUnion, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../data/db';
 
 const AddNewVisit = (userUid) => {
-  const [selectedDay, setSelectedDay] = useState('');
-  const [timeInput, setTimeInput] = useState('');
-  const [packageInput, setPackageInput] = useState('');
-  const [summary, setSummary] = useState(false);
+  const [selectedDayFromDayPicker, setSelectedDay] = useState(''); //dzień wybrany z komponentu DayPicker
+  const [timeInput, setTimeInput] = useState(''); //godzina wybrana z "selecta"
+  const [packageInput, setPackageInput] = useState(''); //pakiet wybrany z "selecta"
+  const [summary, setSummary] = useState(false); //flaga potrzebna do wyświetlenia podsumowania
 
   const handlerClick = (day) => {
+    //klikniecie na dzień w komponencie DayPicker ustawia stan na kliknięty dzień
     setSelectedDay(day);
-    console.log(day.toLocaleDateString());
   };
 
   const summaryHandler = (e) => {
+    //ta funkcja sprawia, że kliknięcie buttona podsumowania ustawia flagę summary na true co pozwala na wyświetlenie podsumowania
     e.preventDefault();
     setSummary(true);
-    // console.log(timeInput, packageInput, selectedDay);
   };
 
   const sendVisitToFirebase = async () => {
-    const timeStampDateSeconds = new Date(selectedDay).getTime();
+    //ta funkcja sprawia, że kliknięcie buttona wyślij  w podsumowaniu wysyła dane wizyty do firebase
+
+    const timeStampDateSeconds = new Date(selectedDayFromDayPicker).getTime(); // zamiana obj Data na number o wartości -  ilość milisekund od 1 stycznia 1970 00:00:00 UTC
+
+    //poniżej logika dodająca odpowiednią ilość milisekund do wybranego dnia w zależności od wybranej godziny aby można było w firebase zapisać godzinę umówionej wizyty
     const timeStampDatePlusHour = () => {
       if (timeInput === '8:00') {
         console.log(timeStampDateSeconds + 28800000);
@@ -35,28 +41,33 @@ const AddNewVisit = (userUid) => {
       }
     };
 
+    //poniżej logika wysłania danych do firebase (push obiektu do array w polu visits w dokumencie user)
     await updateDoc(doc(db, 'users', userUid.userUid), {
       visits: arrayUnion({
-        date: new Date(timeStampDatePlusHour()),
+        date: new Date(timeStampDatePlusHour()), //zmiana z number (milisekundy) na obj Data który zapisze sie jako timestamp w firebase
         package: packageInput,
         isDone: false,
       }),
     });
+
+    //poniżej 'czyszczeni' stanów i przestawienie flagi aby nie wyświetlać podsumowania
     setSelectedDay('');
     setTimeInput('');
     setPackageInput('');
     setSummary(false);
   };
 
+  //zmienna potrzebna do disable`owania dni w komponencie DayPicker
   const disabledDays = [{ from: new Date(2022, 1, 1), to: new Date() }];
 
   return (
     <>
       <h1>Umów się na czyszczonko</h1>
 
+      {/* Komponent z biblioteki react-day-picker do wyboru dnia*/}
       <DayPicker
         mode="single"
-        selected={selectedDay}
+        selected={selectedDayFromDayPicker}
         disabled={disabledDays}
         from={2022}
         toYear={2023}
@@ -64,7 +75,8 @@ const AddNewVisit = (userUid) => {
         captionLayout="dropdown"
       />
 
-      {selectedDay && (
+      {/* Jeśli wybierzemy dzień to pojawia się formularz wyboru godziny i pakietu   */}
+      {selectedDayFromDayPicker && (
         <>
           <form>
             <label htmlFor="time">Wybierz godzinę</label>
@@ -100,14 +112,18 @@ const AddNewVisit = (userUid) => {
               <option value="Pakiet Plastic">Pakiet Plastic</option>
             </select>
 
+            {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
             {timeInput && packageInput ? (
               <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
             ) : null}
           </form>
+
+          {/* po kliknięciu na button podsumowania flaga summary przestawi się na true i wyświetli się podsumowanie */}
           {summary && (
             <div>
               <h2>Podsumowanie umówienia wizyty:</h2>
-              <p>{`Dzień: ${selectedDay.toLocaleDateString()}`}</p>
+              {/*  poniżej metoda toLocaleDateString() zamienia obj date na stringa np na 11.05.2022 */}
+              <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
               <p>{`Godzina: ${timeInput}`}</p>
               <p>{`Pakiet: ${packageInput}`}</p>
               <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} />

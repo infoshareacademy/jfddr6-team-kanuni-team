@@ -13,8 +13,10 @@ import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
   const [isAuth, setIsAuth] = useState(false);
+  const [userUid, setUserUid] = useState(false);
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      setUserUid(user.uid);
       setIsAuth(user.email);
     } else {
       setIsAuth(false);
@@ -29,7 +31,10 @@ function App() {
           {isAuth ? (
             <>
               <Route path="/userdashboard" element={<UserDashboard />} />
-              <Route path="/userdashboard/addnewvisit" element={<AddNewVisit />} />
+              <Route
+                path="/userdashboard/addnewvisit"
+                element={<AddNewVisit userUid={userUid} />}
+              />
             </>
           ) : (
             <>
