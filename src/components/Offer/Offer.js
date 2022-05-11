@@ -3,7 +3,7 @@ import Button from '../Auxiliary/Button.js';
 import './Offer.css';
 const Offer = () => {
   return (
-    <div className="contentOffer">
+    <div className="contentOffer" id="offer">
       <div className="textRtd">
         <span></span>
         <p>O nas</p>

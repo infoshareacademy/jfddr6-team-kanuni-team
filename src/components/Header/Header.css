@@ -2,13 +2,14 @@
 .header{
     margin: 0;
     width: 100%;
-    height: 30rem;
+    height: 325rem;
     background-color: rgba(0, 0, 0, 0.803);
     /* background-image:url(/public/gallery/banner/abhay-paditkar-Lic6Vvl0v7A-unsplash.jpg); */
     background-position:center;
     background-repeat: no-repeat; 
     background-size: cover; 
     border-bottom:2px solid rgba(255, 255, 255, 0.461);
+    padding: 1rem 0;
 }
 .banner{
     display: flex;
