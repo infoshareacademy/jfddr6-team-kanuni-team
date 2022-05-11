@@ -2,7 +2,7 @@
 .header{
     margin: 0;
     width: 100%;
-    height: 25rem;
+    height:fit-content;
     background-color: rgba(0, 0, 0, 0.803);
     /* background-image:url(/public/gallery/banner/abhay-paditkar-Lic6Vvl0v7A-unsplash.jpg); */
     background-position:center;
@@ -42,12 +42,13 @@
 
 .textArea p{
     color: whitesmoke;
-    margin: 0;
+    margin:0;
     font-size: 4rem;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
-text-shadow: 3px 5px 2px #000000;
+    text-shadow: 3px 5px 2px #000000;
+    padding-left: 2rem;
 }
 
 .textArea span {
