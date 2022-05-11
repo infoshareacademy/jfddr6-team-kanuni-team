@@ -12,7 +12,6 @@
 }
 .banner{
     display: flex;
-    margin-top: 1.7rem;
     justify-content: space-around;
 }
 .leftSide{
