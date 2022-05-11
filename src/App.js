@@ -9,12 +9,15 @@ import { useState } from 'react';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
+import AuthProvider from './components/Auxiliary/AuthProvider.js';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
   const [isAuth, setIsAuth] = useState(false);
+  const [userUid, setUserUid] = useState(false);
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      setUserUid(user.uid);
       setIsAuth(user.email);
     } else {
       setIsAuth(false);
@@ -25,19 +28,29 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar isAuth={isAuth} />
+
         <Routes>
-          {isAuth ? (
-            <>
-              <Route path="/userdashboard" element={<UserDashboard />} />
-              <Route path="/userdashboard/addnewvisit" element={<AddNewVisit />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          )}
+          <Route
+            path="/userdashboard"
+            element={
+              <AuthProvider isAuth={isAuth}>
+                <UserDashboard />
+              </AuthProvider>
+            }
+          />
+
+          <Route
+            path="/userdashboard/addnewvisit"
+            element={
+              <AuthProvider isAuth={isAuth}>
+                <AddNewVisit userUid={userUid} />
+              </AuthProvider>
+            }
+          />
+
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login isAuth={isAuth} />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
       <Footer />
