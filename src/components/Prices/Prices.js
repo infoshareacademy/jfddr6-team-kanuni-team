@@ -2,52 +2,52 @@ import './Prices.css';
 
 export const Prices = () => {
   return (
-    <div class="pricing-table">
-      <div class="ptable-item">
-        <div class="ptable-single">
-          <div class="ptable-header">
-            <div class="ptable-title">
+    <div className="pricing-table" id="prices">
+      <div className="ptable-item">
+        <div className="ptable-single">
+          <div className="ptable-header">
+            <div className="ptable-title">
               <h2>Silver</h2>
             </div>
-            <div class="ptable-price">
+            <div className="ptable-price">
               <h2>
                 99<small>zł</small>
               </h2>
             </div>
           </div>
-          <div class="ptable-body">
-            <div class="ptable-description">
+          <div className="ptable-body">
+            <div className="ptable-description">
               <ul>
                 <li>mycie </li>
                 <li>mycie felg</li>
               </ul>
             </div>
           </div>
-          <div class="ptable-footer">
-            <div class="ptable-action">
+          <div className="ptable-footer">
+            <div className="ptable-action">
               <a href="">umów się</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="ptable-item featured-item">
-        <div class="ptable-single">
-          <div class="ptable-header">
-            <div class="ptable-status">
+      <div className="ptable-item featured-item">
+        <div className="ptable-single">
+          <div className="ptable-header">
+            <div className="ptable-status">
               <span>Hot</span>
             </div>
-            <div class="ptable-title">
+            <div className="ptable-title">
               <h2>Gold</h2>
             </div>
-            <div class="ptable-price">
+            <div className="ptable-price">
               <h2>
                 249 <small>zł</small>
               </h2>
             </div>
           </div>
-          <div class="ptable-body">
-            <div class="ptable-description">
+          <div className="ptable-body">
+            <div className="ptable-description">
               <ul>
                 <li>mycie </li>
                 <li>mycie felg</li>
@@ -56,28 +56,28 @@ export const Prices = () => {
               </ul>
             </div>
           </div>
-          <div class="ptable-footer">
-            <div class="ptable-action">
+          <div className="ptable-footer">
+            <div className="ptable-action">
               <a href="">Umów się</a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="ptable-item">
-        <div class="ptable-single">
-          <div class="ptable-header">
-            <div class="ptable-title">
+      <div className="ptable-item">
+        <div className="ptable-single">
+          <div className="ptable-header">
+            <div className="ptable-title">
               <h2>Platinum</h2>
             </div>
-            <div class="ptable-price">
+            <div className="ptable-price">
               <h2>
                 399<small>zł</small>
               </h2>
             </div>
           </div>
-          <div class="ptable-body">
-            <div class="ptable-description">
+          <div className="ptable-body">
+            <div className="ptable-description">
               <ul>
                 <li>mycie</li>
                 <li>mycie felg</li>
@@ -87,27 +87,27 @@ export const Prices = () => {
               </ul>
             </div>
           </div>
-          <div class="ptable-footer">
-            <div class="ptable-action">
+          <div className="ptable-footer">
+            <div className="ptable-action">
               <a href="">umów się</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="ptable-item">
-        <div class="ptable-single">
-          <div class="ptable-header">
-            <div class="ptable-title">
+      <div className="ptable-item">
+        <div className="ptable-single">
+          <div className="ptable-header">
+            <div className="ptable-title">
               <h2>Master</h2>
             </div>
-            <div class="ptable-price">
+            <div className="ptable-price">
               <h2>
                 499<small>zł</small>
               </h2>
             </div>
           </div>
-          <div class="ptable-body">
-            <div class="ptable-description">
+          <div className="ptable-body">
+            <div className="ptable-description">
               <ul>
                 <li>mycie</li>
                 <li>mycie felg</li>
@@ -118,8 +118,8 @@ export const Prices = () => {
               </ul>
             </div>
           </div>
-          <div class="ptable-footer">
-            <div class="ptable-action">
+          <div className="ptable-footer">
+            <div className="ptable-action">
               <a href="">umów się</a>
             </div>
           </div>
