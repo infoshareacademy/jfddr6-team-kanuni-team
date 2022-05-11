@@ -4,14 +4,18 @@ import './Offer.css';
 const Offer = () => {
   return (
     <div className="contentOffer">
+      <div className="textRtd">
+        <span></span>
+        <p>O nas</p>
+      </div>
       <div className="aboutUs">
+        <h3>Hej to my</h3>
         <Lorem />
       </div>
-      <Button
-        className="buttonOffer"
-        onClick={() => console.log('umawiam')}
-        buttonText="Umów się na wizytę"
-      ></Button>
+      <div className="aboutBox">
+        <h3>Myjania</h3>
+        <Lorem />
+      </div>
     </div>
   );
 };
