@@ -8,6 +8,7 @@ import { auth } from './data/db';
 import { useState } from 'react';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import './style.css';
 import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
 import AuthProvider from './components/Auxiliary/AuthProvider.js';
 

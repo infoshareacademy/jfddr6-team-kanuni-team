@@ -1,5 +1,11 @@
+import Img from '../Auxiliary/Img';
+
 const Logo = () => {
-  return <div>Logo</div>;
+  return (
+    <div className="logo">
+      <p>WASH ME UP</p>
+    </div>
+  );
 };
 
 export default Logo;
