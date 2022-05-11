@@ -5,7 +5,9 @@ import './NavbarLinks.css';
 const NavBarLinks = ({ isAuth }) => {
   return (
     <div>
-      {!isAuth ? (
+      {isAuth ? (
+        <Logged isAuth={isAuth} />
+      ) : (
         <>
           <ul className="navbarLinks">
             <li className="navbarSingleLink">Oferta</li>
@@ -18,8 +20,6 @@ const NavBarLinks = ({ isAuth }) => {
             </li>
           </ul>
         </>
-      ) : (
-        <Logged isAuth={isAuth} />
       )}
     </div>
   );
