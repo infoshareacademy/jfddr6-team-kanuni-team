@@ -32,12 +32,17 @@ const UserDashboard = ({ user }) => {
           <h3>Zaplanowane wizyty dla {user} </h3>
           <div>
             {visits.map((visit) => {
-             let serviceDate = new Date(visit.date.seconds);
-             return (
-              <div key={visit.date.seconds}>
-                <p>Twoja wizyta: {visit.package} {serviceDate}</p>
-              </div>
-            )})}
+              let timestamp = visit.date.seconds;
+              let serviceDate = new Date(timestamp);
+              console.log(serviceDate);
+              return (
+                <div key={visit.date.seconds}>
+                  <p>
+                    Twoja wizyta: {visit.package} {visit.date.seconds}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
         <Button>
