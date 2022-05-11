@@ -1,7 +1,6 @@
 import './Header.css';
 import React from 'react';
 import Img from '../Auxiliary/Img';
-import Navbar from '../Navbar/Navbar';
 
 const Header = () => (
   <div className="header">
@@ -12,9 +11,6 @@ const Header = () => (
             Zadbaj o swój <span>samochód</span>
             <br /> z nami!
           </p>
-        </div>
-        <div className="bannerBtn">
-          <a href="#">Umów się</a>
         </div>
       </div>
       <div className="rightside">

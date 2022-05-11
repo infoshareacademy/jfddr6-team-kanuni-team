@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import Button from './Auxiliary/Button';
-import Header from './Header/Header';
 import { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../data/db.js';
@@ -33,7 +32,6 @@ const UserDashboard = ({ user }) => {
 
   return (
     <>
-      <Header />
       <div>
         <div>
           <h3>Twoje wizyty:</h3>
@@ -49,9 +47,11 @@ const UserDashboard = ({ user }) => {
                       Data: {serviceDate.getFullYear()}/0{serviceDate.getMonth() + 1}/
                       {serviceDate.getDate()}
                     </p>
-                    <p>Godzina: {serviceDate.getHours()}:{serviceDate.getMinutes()}0</p>
+                    <p>
+                      Godzina: {serviceDate.getHours()}:{serviceDate.getMinutes()}0
+                    </p>
                     <p>Pakiet: {visit.package}</p>
-                    <hr/>
+                    <hr />
                   </div>
                 </div>
               );

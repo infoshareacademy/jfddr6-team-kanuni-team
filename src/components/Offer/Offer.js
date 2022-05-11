@@ -1,5 +1,4 @@
 import Lorem from '../Auxiliary/Lorem.js';
-import Button from '../Auxiliary/Button.js';
 import './Offer.css';
 const Offer = () => {
   return (
@@ -11,9 +10,11 @@ const Offer = () => {
       <div className="aboutUs">
         <h3>Hej to my</h3>
         <Lorem />
+
+        <a href="/login">Umów się</a>
       </div>
       <div className="aboutBox">
-        <h3>Myjania</h3>
+        <h3>Myjnia</h3>
         <Lorem />
       </div>
     </div>

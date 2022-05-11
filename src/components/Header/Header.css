@@ -1,70 +1,64 @@
-
-.header{
-    margin: 0;
-    width: 100%;
-    height:fit-content;
-    background-color: rgba(0, 0, 0, 0.803);
-    /* background-image:url(/public/gallery/banner/abhay-paditkar-Lic6Vvl0v7A-unsplash.jpg); */
-    background-position:center;
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    border-bottom:2px solid rgba(255, 255, 255, 0.461);
-    padding: 1rem 0;
+.header {
+  margin: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.803);
+  /* background-image:url(/public/gallery/banner/abhay-paditkar-Lic6Vvl0v7A-unsplash.jpg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.461);
+  padding: 1rem 0;
 }
-.banner{
-    display: flex;
-    justify-content: space-around;
+.banner {
+  display: flex;
+  justify-content: space-around;
 }
-.leftSide{
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    width: 50%;
+.leftSide {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 50%;
 }
-.rightside{
-    width: 50%;
-    
-}
-.bannerBtn{
-    margin-top: 5rem;
-}
-.rightside img{
-    height: fit-content;
-    object-fit: cover;
-    width: 100%
+.rightside {
+  width: 50%;
 }
 
-
-.textArea{
-    text-align: end;
+.rightside img {
+  height: fit-content;
+  object-fit: cover;
+  width: 100%;
 }
 
-.textArea p{
-    color: whitesmoke;
-    margin:0;
-    font-size: 4rem;
-    font-weight: 200;
-    text-transform: uppercase;
-    letter-spacing: 0.5rem;
-    text-shadow: 3px 5px 2px #000000;
-    padding-left: 2rem;
+.textArea {
+  text-align: end;
+}
+
+.textArea p {
+  color: whitesmoke;
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  text-shadow: 3px 5px 2px #000000;
+  padding-left: 2rem;
 }
 
 .textArea span {
-    color:#98b021 ;
-    font-weight: 400;
+  color: #98b021;
+  font-weight: 400;
 }
-.bannerBtn a{
-    padding: 1.3rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: whitesmoke;
-    border: 2px solid whitesmoke;
-    text-decoration:none ;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
--moz-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
-
+.bannerBtn a {
+  padding: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  text-decoration: none;
+  -webkit-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+  box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
 }
