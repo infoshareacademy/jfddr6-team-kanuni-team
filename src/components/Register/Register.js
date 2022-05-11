@@ -25,7 +25,7 @@ const registerUserAuth = async (email, password) => {
         break;
     }
   });
-  console.log(response);
+
   return response.user;
 };
 
@@ -34,6 +34,7 @@ const createUserMetaDate = async ({ id, name, lastName, mail }) => {
     name,
     lastName,
     mail,
+    visits: [],
   });
 };
 

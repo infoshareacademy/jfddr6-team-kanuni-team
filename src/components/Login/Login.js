@@ -1,19 +1,34 @@
 //komponent z formularzem i logiką do zalogowania
-
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import Button from '../Auxiliary/Button';
 import { auth } from '../../data/db';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ isAuth }) => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
 
   let navigate = useNavigate();
 
   const loginUser = async (email, password) => {
-    await signInWithEmailAndPassword(auth, email, password);
+    const response = await signInWithEmailAndPassword(auth, email, password).catch((error) => {
+      switch (error.code) {
+        case 'auth/wrong-password':
+          alert(`Złe hasło`);
+          break;
+        case 'auth/user-not-found':
+          alert(`Nie ma takiego użytkownika`);
+          break;
+        default:
+          console.log(error.message);
+          alert(`Wystąpił błąd`);
+          console.log(error.message);
+          break;
+      }
+    });
+
     setEmailInput('');
     setPasswordInput('');
     navigate('/userdashboard');
@@ -45,6 +60,12 @@ const Login = () => {
         />
         <Button buttonText={'Zaloguj'} />
       </form>
+      <h2>
+        Nie masz konta?{' '}
+        <Button>
+          <NavLink to="/register">Zarejestruj się</NavLink>
+        </Button>
+      </h2>
     </>
   );
 };

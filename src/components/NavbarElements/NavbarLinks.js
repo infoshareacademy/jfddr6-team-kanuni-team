@@ -13,8 +13,10 @@ const NavBarLinks = ({ isAuth }) => {
             <li className="navbarSingleLink">Oferta</li>
             <li className="navbarSingleLink">Cennik</li>
             <li className="navbarSingleLink">Kontakt</li>
-            <li>
-              <NavLink to="/login">Zaloguj</NavLink>
+            <li className="navbarSingleLink">
+              <NavLink to="/login" className="loginBtn">
+                Zaloguj
+              </NavLink>
             </li>
           </ul>
         </>
