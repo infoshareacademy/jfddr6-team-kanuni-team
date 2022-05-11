@@ -1,0 +1,50 @@
+.loginPage {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-top:8rem;
+    margin-bottom:8rem;
+    align-items: center;
+  }
+  
+  .loginBox {
+    border-radius: 15px;
+    color: rgb(0, 0, 0);
+    padding: 2rem 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+.registerBox{
+    background-color: #98b021;
+    padding: 2rem;
+    margin-top: 50px;
+    color: #fff;
+    border-radius: 0.7rem;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
+
+.loginBox form{
+    display: flex;
+    flex-direction: column;
+}
+.loginBox input{
+    width: 15rem;
+    height: 1.1rem;
+   font-size:13px ;
+}
+
+.loginBox h2{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+.loginBox button{
+    margin-top: 1rem;
+    width: 50%;
+    padding: 0.7rem;
+    align-self: flex-end;
+}

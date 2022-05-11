@@ -64,10 +64,8 @@
 .aboutBox{
     background-color: #98b021;
     width: 30%;
-    right: 0;
     padding: 2rem;
     margin-top: 50px;
-    z-index: 10;
     color: #fff;
     border-radius: 0.7rem;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
