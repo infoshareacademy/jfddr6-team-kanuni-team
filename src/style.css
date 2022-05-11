@@ -11,4 +11,5 @@ body{
     display: flex;
     font-family: Lato;
     flex-wrap:wrap ;
+    flex-direction: column;
 }
