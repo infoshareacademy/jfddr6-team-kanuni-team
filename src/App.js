@@ -35,7 +35,7 @@ function App() {
             path="/userdashboard"
             element={
               <AuthProvider isAuth={isAuth}>
-                <UserDashboard user={isAuth} />
+                <UserDashboard user={isAuth} id={userUid} />
               </AuthProvider>
             }
           />
