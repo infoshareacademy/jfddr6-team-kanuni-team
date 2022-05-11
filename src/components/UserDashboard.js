@@ -17,6 +17,11 @@ const UserDashboard = ({ user }) => {
       id: doc.id,
       ...doc.data(),
     }));
+    console.log('Ewa', new Date(currentUser.visits[0].date.seconds * 1000).getDate());
+    //  console.log("Ewa 2", visitsDocuments.docs.map((doc) => ({
+    //   id: doc.id,
+    //   ...doc.data(),
+    // })))
     setVisits(currentUser.visits);
   };
 
@@ -24,22 +29,30 @@ const UserDashboard = ({ user }) => {
     getVisits();
   }, []);
 
+  const deleteVisit = () => {};
+
   return (
     <>
       <Header />
       <div>
         <div>
-          <h3>Zaplanowane wizyty dla {user} </h3>
+          <h3>Twoje wizyty:</h3>
           <div>
             {visits.map((visit) => {
               let timestamp = visit.date.seconds;
-              let serviceDate = new Date(timestamp);
+              let serviceDate = new Date(timestamp * 1000);
               console.log(serviceDate);
               return (
                 <div key={visit.date.seconds}>
-                  <p>
-                    Twoja wizyta: {visit.package} {visit.date.seconds}
-                  </p>
+                  <div>
+                    <p>
+                      Data: {serviceDate.getFullYear()}/0{serviceDate.getMonth() + 1}/
+                      {serviceDate.getDate()}
+                    </p>
+                    <p>Godzina: {serviceDate.getHours()}:{serviceDate.getMinutes()}0</p>
+                    <p>Pakiet: {visit.package}</p>
+                    <hr/>
+                  </div>
                 </div>
               );
             })}
@@ -48,10 +61,6 @@ const UserDashboard = ({ user }) => {
         <Button>
           <NavLink to="/userdashboard/addnewvisit">Umów wizytę</NavLink>
         </Button>
-        <div>
-          <h3>Twoje zrealizowane wizyty:</h3>
-          <div>00/00/00 NazwaPakietu</div>
-        </div>
       </div>
     </>
   );
