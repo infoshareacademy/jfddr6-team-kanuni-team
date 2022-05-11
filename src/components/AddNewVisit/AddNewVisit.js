@@ -6,12 +6,14 @@ import Button from '../Auxiliary/Button';
 import 'react-day-picker/dist/style.css';
 import { arrayUnion, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../data/db';
+import { useNavigate } from 'react-router-dom';
 
 const AddNewVisit = (userUid) => {
   const [selectedDayFromDayPicker, setSelectedDay] = useState(''); //dzień wybrany z komponentu DayPicker
   const [timeInput, setTimeInput] = useState(''); //godzina wybrana z "selecta"
   const [packageInput, setPackageInput] = useState(''); //pakiet wybrany z "selecta"
   const [summary, setSummary] = useState(false); //flaga potrzebna do wyświetlenia podsumowania
+  const navigate = useNavigate();
 
   const handlerClick = (day) => {
     //klikniecie na dzień w komponencie DayPicker ustawia stan na kliknięty dzień
@@ -50,13 +52,19 @@ const AddNewVisit = (userUid) => {
       }),
     });
 
-    //poniżej 'czyszczeni' stanów i przestawienie flagi aby nie wyświetlać podsumowania
+    //poniżej 'czyszczenie' stanów i przekierowanie do panelu użytkownika
+    setSelectedDay('');
+    setTimeInput('');
+    setPackageInput('');
+    setSummary(false);
+    navigate('/userdashboard');
+  };
+  const backToVisitPick = () => {
     setSelectedDay('');
     setTimeInput('');
     setPackageInput('');
     setSummary(false);
   };
-
   //zmienna potrzebna do disable`owania dni w komponencie DayPicker
   const disabledDays = [{ from: new Date(2022, 1, 1), to: new Date() }];
 
@@ -64,59 +72,62 @@ const AddNewVisit = (userUid) => {
     <>
       <h1>Umów się na czyszczonko</h1>
 
-      {/* Komponent z biblioteki react-day-picker do wyboru dnia*/}
-      <DayPicker
-        mode="single"
-        selected={selectedDayFromDayPicker}
-        disabled={disabledDays}
-        from={2022}
-        toYear={2023}
-        onSelect={handlerClick}
-        captionLayout="dropdown"
-      />
+      {!summary && (
+        <DayPicker
+          mode="single"
+          selected={selectedDayFromDayPicker}
+          disabled={disabledDays}
+          from={2022}
+          toYear={2023}
+          onSelect={handlerClick}
+          captionLayout="dropdown"
+        />
+      )}
 
       {/* Jeśli wybierzemy dzień to pojawia się formularz wyboru godziny i pakietu   */}
       {selectedDayFromDayPicker && (
         <>
-          <form>
-            <label htmlFor="time">Wybierz godzinę</label>
-            <select
-              name="time"
-              id="time"
-              onChange={(e) => setTimeInput(e.target.value)}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Wybierz godzinę
-              </option>
-              <option value="8:00">8:00</option>
-              <option value="11:00">11:00</option>
-              <option value="14:00">14:00</option>
-            </select>
+          {!summary && (
+            <form>
+              <label htmlFor="time">Wybierz godzinę</label>
+              <select
+                name="time"
+                id="time"
+                onChange={(e) => setTimeInput(e.target.value)}
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Wybierz godzinę
+                </option>
+                <option value="8:00">8:00</option>
+                <option value="11:00">11:00</option>
+                <option value="14:00">14:00</option>
+              </select>
 
-            <label htmlFor="package">Wybierz pakiet</label>
-            <select
-              name="package"
-              id="package"
-              onChange={(e) => setPackageInput(e.target.value)}
-              defaultValue=""
-            >
-              <option value="" disabled>
-                Wybierz pakiet
-              </option>
-              <option value="Pakiet Platinum">Pakiet Platinum</option>
-              <option value="Pakiet Gold">Pakiet Gold</option>
-              <option value="Pakiet Silver">Pakiet Silver</option>
-              <option value="Pakiet Bronze">Pakiet Bronze</option>
-              <option value="Pakiet Wood">Pakiet Wood</option>
-              <option value="Pakiet Plastic">Pakiet Plastic</option>
-            </select>
+              <label htmlFor="package">Wybierz pakiet</label>
+              <select
+                name="package"
+                id="package"
+                onChange={(e) => setPackageInput(e.target.value)}
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Wybierz pakiet
+                </option>
+                <option value="Pakiet Platinum">Pakiet Platinum</option>
+                <option value="Pakiet Gold">Pakiet Gold</option>
+                <option value="Pakiet Silver">Pakiet Silver</option>
+                <option value="Pakiet Bronze">Pakiet Bronze</option>
+                <option value="Pakiet Wood">Pakiet Wood</option>
+                <option value="Pakiet Plastic">Pakiet Plastic</option>
+              </select>
 
-            {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
-            {timeInput && packageInput ? (
-              <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
-            ) : null}
-          </form>
+              {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
+              {timeInput && packageInput ? (
+                <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
+              ) : null}
+            </form>
+          )}
 
           {/* po kliknięciu na button podsumowania flaga summary przestawi się na true i wyświetli się podsumowanie */}
           {summary && (
@@ -126,6 +137,7 @@ const AddNewVisit = (userUid) => {
               <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
               <p>{`Godzina: ${timeInput}`}</p>
               <p>{`Pakiet: ${packageInput}`}</p>
+              <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
               <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} />
             </div>
           )}
