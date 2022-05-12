@@ -16,7 +16,7 @@ const Logged = ({ isAuth }) => {
 
   return (
     <>
-      <p className="loggedInscription">jesteś zalogowany jako: {isAuth}</p>
+      <p className="loggedInscription">Cześć, {isAuth}</p>
       <Button buttonText={'Wyloguj'} onClick={signOutUser} />
     </>
   );

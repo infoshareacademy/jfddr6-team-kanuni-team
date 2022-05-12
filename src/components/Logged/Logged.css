@@ -1,3 +1,8 @@
 .loggedInscription {
+  display: inline;
   color: #fff;
+  padding-top: 20px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
