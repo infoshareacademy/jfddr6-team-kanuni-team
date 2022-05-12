@@ -22,6 +22,7 @@
 }
 
 .singleVisit p {
+    text-transform: uppercase;
     font-weight: 700;
     color: rgb(43, 43, 44);
     font-size: small;
@@ -30,17 +31,27 @@
 }
 
 .visitButton {
-
+    text-transform: uppercase;
+    font-weight: bold;
     border-style: none;
     background-color: rgba(0, 0, 0, 0);
     margin-top: 25px;
 }
 
 .cancelButton {
+    cursor: pointer;
     color: aliceblue;
     background-color: rgb(46, 49, 44);
     border-radius: 2px;
     box-shadow: 8px 8px 24px 0px rgb(30, 30, 31);
+}
+
+.cancelButton:hover {
+    background-color: rgb(94, 136, 27);
+}
+
+.cancelButton:active {
+    background-color: rgb(127, 187, 30);
 }
 
 .visitText {
