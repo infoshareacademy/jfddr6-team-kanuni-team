@@ -31,14 +31,15 @@
   width: 300px;
   height: 200px;
   margin: 15px;
-  background-image: url(../../public/sponge.jpg);
+  background-image: url(../../public/sponge.png);
   background-size: cover;
+  background-opacity: 0.2;
 }
 
 .singleVisit p {
   text-transform: uppercase;
   font-weight: 400;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-shadow: 0px 0px 3px rgba(114, 114, 114, 0.75);
   font-size: 0.8rem;
   margin: 20px;
