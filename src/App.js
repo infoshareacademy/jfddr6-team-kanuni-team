@@ -2,7 +2,7 @@ import Footer from './components/Footer/Footer.js';
 import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
@@ -50,9 +50,15 @@ function App() {
             }
           />
 
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login isAuth={isAuth} />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={isAuth ? <UserDashboard user={isAuth} /> : <Home />} />
+          <Route
+            path="/login"
+            element={isAuth ? <UserDashboard user={isAuth} /> : <Login isAuth={isAuth} />}
+          />
+          <Route
+            path="/register"
+            element={isAuth ? <UserDashboard user={isAuth} /> : <Register />}
+          />
         </Routes>
       </BrowserRouter>
       <Footer />
