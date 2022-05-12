@@ -6,6 +6,7 @@ import { auth } from '../../data/db';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+
 const Login = ({ isAuth }) => {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
@@ -42,34 +43,36 @@ const Login = ({ isAuth }) => {
   return (
     <>
       <div className="loginPage">
-        <div className="loginBox">
-          <h2>Zaloguj</h2>
-          <form onSubmit={handlerLogIn}>
-            <label htmlFor="loginEmail">Email: </label>
-            <input
-              type="email"
-              id="loginEmail"
-              value={emailInput}
-              onChange={(e) => setEmailInput(e.target.value)}
-            />
+        <div className="loginConteiner">
+          <div className="loginBox">
+            <h2>Zaloguj</h2>
+            <form onSubmit={handlerLogIn}>
+              <label htmlFor="loginEmail"></label>
+              <input
+                placeholder="Email"
+                type="email"
+                id="loginEmail"
+                value={emailInput}
+                onChange={(e) => setEmailInput(e.target.value)}
+              />
 
-            <label htmlFor="loginPassword">Hasło: </label>
-            <input
-              type="password"
-              id="loginPassword"
-              value={passwordInput}
-              onChange={(e) => setPasswordInput(e.target.value)}
-            />
-            <Button buttonText={'Zaloguj'} />
-          </form>
-        </div>
-        <div className="registerBox">
-          <h2>
-            Nie masz konta?{' '}
+              <label htmlFor="loginPassword"></label>
+              <input
+                placeholder="Hasło"
+                type="password"
+                id="loginPassword"
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+              />
+              <Button buttonText={'Zaloguj'} />
+            </form>
+          </div>
+          <div className="registerBox">
+            <h2>Nie masz konta?</h2>
             <Button>
               <NavLink to="/register">Zarejestruj się</NavLink>
             </Button>
-          </h2>
+          </div>
         </div>
       </div>
     </>
