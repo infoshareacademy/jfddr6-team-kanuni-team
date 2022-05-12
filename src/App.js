@@ -27,6 +27,8 @@ function App() {
     }
   });
 
+  console.log("App ID:", userUid)
+
   return (
     <div>
       <BrowserRouter>
@@ -37,7 +39,7 @@ function App() {
             path="/userdashboard"
             element={
               <AuthProvider isAuth={isAuth}>
-                <UserDashboard user={isAuth} />
+                <UserDashboard user={isAuth} id={userUid} />
               </AuthProvider>
             }
           />
@@ -54,11 +56,11 @@ function App() {
           <Route path="/" element={isAuth ? <UserDashboard user={isAuth} /> : <Home />} />
           <Route
             path="/login"
-            element={isAuth ? <UserDashboard user={isAuth} /> : <Login isAuth={isAuth} />}
+            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Login isAuth={isAuth} />}
           />
           <Route
             path="/register"
-            element={isAuth ? <UserDashboard user={isAuth} /> : <Register />}
+            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Register />}
           />
           <Route
             path="/forgotpassword"
