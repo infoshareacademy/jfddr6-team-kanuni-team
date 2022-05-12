@@ -12,6 +12,7 @@ import './style.css';
 import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
 import AuthProvider from './components/Auxiliary/AuthProvider.js';
 import Header from './components/Header/Header.js';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword.js';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
@@ -58,6 +59,10 @@ function App() {
           <Route
             path="/register"
             element={isAuth ? <UserDashboard user={isAuth} /> : <Register />}
+          />
+          <Route
+            path="/forgotpassword"
+            element={isAuth ? <UserDashboard user={isAuth} /> : <ForgotPassword />}
           />
         </Routes>
       </BrowserRouter>

@@ -17,7 +17,7 @@ const Navbar = ({ isAuth }) => {
     <div className="navbar">
       <Logo />
 
-      {location.pathname !== '/login' ? (
+      {location.pathname !== '/login' && location.pathname !== '/forgotpassword' ? (
         <NavbarLinks isAuth={isAuth} />
       ) : !isAuth ? (
         <Button buttonText={'Strona główna'} onClick={backToMainPage} />
