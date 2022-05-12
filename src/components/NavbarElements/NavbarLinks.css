@@ -1,0 +1,26 @@
+
+.logo h3{
+  font-size: 3rem;
+  color:white;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  font-family:Lato;
+  font-weight: 700;
+  letter-spacing: 3px;
+  position:static;
+  padding: 1rem 1rem;
+  text-shadow:0px 0px  10px whitesmoke,
+    0px 0px  40px whitesmoke,
+  0px 0px  70px white,
+  0px 0px  120px whitesmoke;
+  transition-duration:4s;
+   -webkit-transition-duration:2s;
+}
+
+.logo h3:hover{
+  text-shadow:0px 0px  10px transparent,
+    0px 0px  40px transparent,
+  0px 0px  80px transparent,
+  0px 0px  120px transparent;
+}

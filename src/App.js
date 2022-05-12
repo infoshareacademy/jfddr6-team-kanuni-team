@@ -2,7 +2,7 @@ import Footer from './components/Footer/Footer.js';
 import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
@@ -11,6 +11,7 @@ import Register from './components/Register/Register';
 import './style.css';
 import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
 import AuthProvider from './components/Auxiliary/AuthProvider.js';
+import Header from './components/Header/Header.js';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
@@ -25,11 +26,13 @@ function App() {
     }
   });
 
+  console.log("App ID:", userUid)
+
   return (
     <div>
       <BrowserRouter>
         <Navbar isAuth={isAuth} />
-
+        <Header />
         <Routes>
           <Route
             path="/userdashboard"
@@ -49,9 +52,15 @@ function App() {
             }
           />
 
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login isAuth={isAuth} />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={isAuth ? <UserDashboard user={isAuth} /> : <Home />} />
+          <Route
+            path="/login"
+            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Login isAuth={isAuth} />}
+          />
+          <Route
+            path="/register"
+            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Register />}
+          />
         </Routes>
       </BrowserRouter>
       <Footer />

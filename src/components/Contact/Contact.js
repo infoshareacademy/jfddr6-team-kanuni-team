@@ -17,17 +17,17 @@ const Contact = () => {
           <h3 class="title">napisz do nas</h3>
 
           <div class="form_fild">
-            <div class="input_group w_50">
+            <div class="input_group">
               <input type="text" class="input" required />
               <label class="placeholder">twoje imie</label>
             </div>
 
-            <div class="input_group w_50">
+            <div class="input_group">
               <input type="text" class="input" required />
               <label class="placeholder">twój adres email</label>
             </div>
 
-            <div class="input_group w_100">
+            <div class="input_group">
               <textarea class="input input_textarea " rows="6" required></textarea>
               <label class="placeholder textarea">napisz do nas wiadomość</label>
             </div>

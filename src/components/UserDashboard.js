@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import Button from './Auxiliary/Button.js';
-import Header from './Header/Header';
 import { useState, useEffect } from 'react';
 import {
   collection,
@@ -8,13 +7,12 @@ import {
   query,
   where,
   updateDoc,
-  deleteField,
   doc,
-  deleteDoc,
 } from 'firebase/firestore';
 import { db } from '../data/db.js';
 
 const UserDashboard = ({ id, user }) => {
+  console.log('ID:', id);
   const [visits, setVisits] = useState([]);
 
   const getVisits = async () => {
@@ -33,22 +31,21 @@ const UserDashboard = ({ id, user }) => {
     getVisits();
   }, []);
 
-  // const deleteVisit = async () => {
-  //   // const visitRef = doc(db, `users/${id}/visits/${index}`);
-  //   // await deleteDoc(visitRef);
-  //   const visitRef = doc(db, 'users', id);
-  //   await updateDoc (visitRef, {
-  //     visits: deleteField()
-  //   })
-  //   // getVisits();
-  // };
+  const deleteVisit = async (index) => {
+    const visitRef = doc(db, 'users', id);
+    const filteredVisits = visits.filter((_, i) => {
+      console.log('ID, index', id, index);
+      return i !== index;
+    });
+    await updateDoc(visitRef, {
+      visits: filteredVisits,
+    });
 
-  // const handleDelete = (index) => {
-  //   deleteVisit(index);
-  // };
+    getVisits();
+  };
+
   return (
     <>
-      <Header />
       <div>
         <Button>
           <NavLink to="/userdashboard/addnewvisit">Umów kolejną wizytę</NavLink>
@@ -56,11 +53,11 @@ const UserDashboard = ({ id, user }) => {
         <div>
           <h3>Twoje wizyty:</h3>
           <div>
-            {visits.map((visit) => {
+            {visits.map((visit, i) => {
               let timestamp = visit.date.seconds;
               let serviceDate = new Date(timestamp * 1000);
               return (
-                <div key={visit.date.seconds}>
+                <div key={Math.random(timestamp)}>
                   <div>
                     <p>
                       Data: {serviceDate.getFullYear()}/0{serviceDate.getMonth() + 1}/
@@ -70,7 +67,7 @@ const UserDashboard = ({ id, user }) => {
                       Godzina: {serviceDate.getHours()}:{serviceDate.getMinutes()}0
                     </p>
                     <p>Pakiet: {visit.package}</p>
-                    <Button>Anuluj wizytę</Button>
+                    <Button onClick={() => deleteVisit(i)}>Anuluj wizytę</Button>
                     <hr />
                   </div>
                 </div>

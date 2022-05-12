@@ -113,3 +113,6 @@
             letter-spacing: 3px;
 
           }
+          .input_textarea{
+            resize: none;
+          }

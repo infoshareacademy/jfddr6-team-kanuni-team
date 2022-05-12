@@ -25,7 +25,7 @@ export const Prices = () => {
           </div>
           <div className="ptable-footer">
             <div className="ptable-action">
-              <a href="">umów się</a>
+              <a href="/login">umów się</a>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ export const Prices = () => {
           </div>
           <div className="ptable-footer">
             <div className="ptable-action">
-              <a href="">Umów się</a>
+              <a href="/login">Umów się</a>
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@ export const Prices = () => {
           </div>
           <div className="ptable-footer">
             <div className="ptable-action">
-              <a href="">umów się</a>
+              <a href="/login">umów się</a>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@ export const Prices = () => {
           </div>
           <div className="ptable-footer">
             <div className="ptable-action">
-              <a href="">umów się</a>
+              <a href="/login">umów się</a>
             </div>
           </div>
         </div>
