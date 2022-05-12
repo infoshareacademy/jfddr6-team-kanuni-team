@@ -72,6 +72,8 @@ const Login = ({ isAuth }) => {
             <Button>
               <NavLink to="/register">Zarejestruj się</NavLink>
             </Button>
+          </div>
+          <div className="reset">
             <h2>Zapomniałeś hasła?</h2>
             <Button>
               <NavLink to="/forgotpassword">Zresetuj hasło</NavLink>
