@@ -3,7 +3,7 @@ import './Contact.css';
 const Contact = () => {
   return (
     <div className="contact" id="contact">
-      <form netlify>
+      <form name="contact" method="POST" data-netlify="true">
         <section className="contact_wrapper">
           <div className="contact_info">
             <h3 className="titleleft">kontakt</h3>
@@ -39,7 +39,10 @@ const Contact = () => {
               </div>
 
               <div className="input_group">
-                <input type="submit" className="btn" value="Wyślij" />
+                <button type="submit" className="btn">
+                  Wyślij
+                </button>
+                {/* <input type="submit" className="btn" value="Wyślij" /> */}
               </div>
             </div>
           </div>
