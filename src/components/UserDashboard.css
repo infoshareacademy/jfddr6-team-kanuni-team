@@ -10,21 +10,20 @@
     background-color: rgba(0, 0, 0, 0.803);
     width: 50%;
     padding: 2rem;
-    border-radius: 0.7rem;
     box-shadow: 8px 8px 24px 0px rgb(43, 43, 44);
 }
 
 
 .singleVisit {
-    background-color: #98b021;
-    border-radius: 0.7rem;
+    background-color: #fff;
+    border-radius: 3px;
     font-size: 12px;
     box-shadow: 5px 5px 2px;
 }
 
 .singleVisit p {
     font-weight: 700;
-    color: aliceblue;
+    color: rgb(43, 43, 44);
     font-size: small;
     margin: 10px;
     padding: 1px;
@@ -40,18 +39,44 @@
 .cancelButton {
     color: aliceblue;
     background-color: rgb(46, 49, 44);
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 8px 8px 24px 0px rgb(30, 30, 31);
 }
 
 .visitText {
-    color: aliceblue;
+    color: rgb(43, 43, 44);
     display: block;
-    background-color: #98b021;
+    background-color: #fff;
     font-size: 15px;
     padding: 25px;
-    border-radius: 0.7rem;
-    box-shadow: 8px 8px 24px 0px rgb(57, 57, 59);
+    border-radius: 5px;
+    box-shadow: 8px 8px 24px 0px rgb(12, 12, 12);
+    outline: none;
+    text-decoration: none;
+
+}
+
+.visitText:hover {
+    color: rgb(43, 43, 44);
+    display: block;
+    background-color: rgb(127, 187, 30);
+    font-size: 15px;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 8px 8px 24px 0px rgb(12, 12, 12);
+    outline: none;
+    text-decoration: none;
+
+}
+
+.visitText:active {
+    color: rgb(43, 43, 44);
+    display: block;
+    background-color: rgb(94, 136, 27);
+    font-size: 15px;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 8px 8px 24px 0px rgb(12, 12, 12);
     outline: none;
     text-decoration: none;
 
