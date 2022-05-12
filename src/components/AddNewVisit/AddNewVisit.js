@@ -7,6 +7,7 @@ import 'react-day-picker/dist/style.css';
 import { arrayUnion, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../data/db';
 import { useNavigate } from 'react-router-dom';
+import { Prices } from '../Prices/Prices';
 
 const AddNewVisit = (userUid) => {
   const [selectedDayFromDayPicker, setSelectedDay] = useState(''); //dzień wybrany z komponentu DayPicker
@@ -119,12 +120,10 @@ const AddNewVisit = (userUid) => {
                 <option value="" disabled>
                   Wybierz pakiet
                 </option>
-                <option value="Pakiet Platinum">Pakiet Platinum</option>
-                <option value="Pakiet Gold">Pakiet Gold</option>
-                <option value="Pakiet Silver">Pakiet Silver</option>
-                <option value="Pakiet Bronze">Pakiet Bronze</option>
-                <option value="Pakiet Wood">Pakiet Wood</option>
-                <option value="Pakiet Plastic">Pakiet Plastic</option>
+                <option value="Pakiet Silver">Pakiet Silver 99zł</option>
+                <option value="Pakiet Gold">Pakiet Gold 249zł</option>
+                <option value="Pakiet Platinum">Pakiet Platinum 399zł</option>
+                <option value="Pakiet Master">Pakiet Master 499zł</option>
               </select>
 
               {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
