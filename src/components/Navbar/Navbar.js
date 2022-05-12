@@ -1,6 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Button from '../Auxiliary/Button.js';
+import Logged from '../Logged/Logged.js';
 import Logo from '../NavbarElements/Logo.js';
 import NavbarLinks from '../NavbarElements/NavbarLinks.js';
 import './Navbar.css';
@@ -16,10 +17,12 @@ const Navbar = ({ isAuth }) => {
     <div className="navbar">
       <Logo />
 
-      {location.pathname !== '/login' ? (
+      {location.pathname !== '/login' && location.pathname !== '/forgotpassword' ? (
         <NavbarLinks isAuth={isAuth} />
-      ) : (
+      ) : !isAuth ? (
         <Button buttonText={'Strona główna'} onClick={backToMainPage} />
+      ) : (
+        <Logged isAuth={isAuth} />
       )}
     </div>
   );

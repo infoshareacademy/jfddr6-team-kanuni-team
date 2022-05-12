@@ -2,7 +2,7 @@ import Footer from './components/Footer/Footer.js';
 import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
@@ -12,6 +12,7 @@ import './style.css';
 import AddNewVisit from './components/AddNewVisit/AddNewVisit.js';
 import AuthProvider from './components/Auxiliary/AuthProvider.js';
 import Header from './components/Header/Header.js';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword.js';
 
 function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
@@ -26,6 +27,8 @@ function App() {
     }
   });
 
+  console.log("App ID:", userUid)
+
   return (
     <div>
       <BrowserRouter>
@@ -36,7 +39,7 @@ function App() {
             path="/userdashboard"
             element={
               <AuthProvider isAuth={isAuth}>
-                <UserDashboard user={isAuth} />
+                <UserDashboard user={isAuth} id={userUid} />
               </AuthProvider>
             }
           />
@@ -50,9 +53,19 @@ function App() {
             }
           />
 
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login isAuth={isAuth} />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={isAuth ? <UserDashboard user={isAuth} /> : <Home />} />
+          <Route
+            path="/login"
+            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Login isAuth={isAuth} />}
+          />
+          <Route
+            path="/register"
+            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Register />}
+          />
+          <Route
+            path="/forgotpassword"
+            element={isAuth ? <UserDashboard user={isAuth} /> : <ForgotPassword />}
+          />
         </Routes>
       </BrowserRouter>
       <Footer />
