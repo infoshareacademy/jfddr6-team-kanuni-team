@@ -4,6 +4,7 @@ import Button from '../Auxiliary/Button';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../data/db';
 import { useNavigate } from 'react-router-dom';
+import "./Logged.css";
 
 const Logged = ({ isAuth }) => {
   let navigate = useNavigate();
