@@ -2,7 +2,7 @@ import Footer from './components/Footer/Footer.js';
 import Home from './components/Home';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar/Navbar.js';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './data/db';
 import { useState } from 'react';
@@ -18,6 +18,7 @@ function App() {
   //poniżej logika do ustawienia stanu w którym przechowywana jest informacja czy jesteśmy zalogowani
   const [isAuth, setIsAuth] = useState(false);
   const [userUid, setUserUid] = useState(false);
+
   onAuthStateChanged(auth, (user) => {
     if (user) {
       setUserUid(user.uid);
@@ -27,7 +28,7 @@ function App() {
     }
   });
 
-  console.log("App ID:", userUid)
+  console.log('App ID:', userUid);
 
   return (
     <div>
@@ -53,18 +54,41 @@ function App() {
             }
           />
 
-          <Route path="/" element={isAuth ? <UserDashboard user={isAuth} /> : <Home />} />
+          <Route
+            path="/"
+            element={
+              isAuth ? <Navigate to="/userdashboard" state={{ from: '/' }} replace /> : <Home />
+            }
+          />
           <Route
             path="/login"
-            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Login isAuth={isAuth} />}
+            element={
+              isAuth ? (
+                <Navigate to="/userdashboard" state={{ from: '/login' }} replace />
+              ) : (
+                <Login isAuth={isAuth} />
+              )
+            }
           />
           <Route
             path="/register"
-            element={isAuth ? <UserDashboard user={isAuth} id={userUid} /> : <Register />}
+            element={
+              isAuth ? (
+                <Navigate to="/userdashboard" state={{ from: '/register' }} replace />
+              ) : (
+                <Register />
+              )
+            }
           />
           <Route
             path="/forgotpassword"
-            element={isAuth ? <UserDashboard user={isAuth} /> : <ForgotPassword />}
+            element={
+              isAuth ? (
+                <Navigate to="/userdashboard" state={{ from: '/forgotpassword' }} replace />
+              ) : (
+                <ForgotPassword />
+              )
+            }
           />
         </Routes>
       </BrowserRouter>
