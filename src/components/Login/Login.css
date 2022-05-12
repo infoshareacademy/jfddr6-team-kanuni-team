@@ -1,29 +1,49 @@
 .loginPage {
     display: flex;
-    flex-direction: row;
-    width: 100%;
     justify-content: center;
-    margin-top:8rem;
-    margin-bottom:8rem;
     align-items: center;
-  }
-  
-  .loginBox {
-    border-radius: 15px;
-    color: rgb(0, 0, 0);
-    padding: 2rem 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  }
+    width: 70%;
+    height: 60vh;
+    background-size: cover;
+    margin: auto;
+    flex-wrap: wrap;
+}
+  .loginConteiner{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: rgba(34, 34, 34, 0.85);
+    border-radius: 3px;
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 
 .registerBox{
-    background-color: #98b021;
-    padding: 2rem;
-    margin-top: 50px;
+    width: 40%;
+    padding:3rem 2rem;
     color: #fff;
-    border-radius: 0.7rem;
-    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    flex-wrap:wrap ;
+}
+
+
+.loginBox {
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: -83px;
+    width: calc(45% - -44px);
+    min-height: 350px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
+    overflow: hidden;
+    transform: translate3d(100%, -50%, 0);
+
 }
 
 .loginBox form{
@@ -31,20 +51,77 @@
     flex-direction: column;
 }
 .loginBox input{
-    width: 15rem;
-    height: 1.1rem;
-   font-size:13px ;
+    width: 100%;
+            min-height: 30px;
+            padding: 5px 0px;
+            border: none;
+            font-size: 1rem;
+            color: black;
+            outline: none;
+            font-weight: 200;
+            border-bottom: solid 2px #e9e9e9;
+            letter-spacing: 1px;
+    
 }
 
+
 .loginBox h2{
-    font-size: 1.8rem;
+    margin-bottom: 45px;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1em;
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-weight: 500;
 }
+
 .loginBox button{
-    margin-top: 1rem;
-    width: 50%;
-    padding: 0.7rem;
-    align-self: flex-end;
+    background-color: transparent;
+    cursor: pointer;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-self: end;
+    margin-top: 35px;
+    border-radius: 3px;
+    padding: 10px 35px;
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    line-height: 1em;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+
+}
+
+
+.registerBox h2{
+    font-size: 2rem;
+    line-height: 1em;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.registerBox button {
+    background-color: transparent;
+    cursor: pointer;
+    width: 15rem;
+    height: 3rem;
+    margin-top: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0.8rem 1.2rem;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1em;
+    letter-spacing: 0.2rem;
+}
+.registerBox a{
+    color: #fff;
+    line-height: 1em;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+
 }

@@ -24,3 +24,35 @@
   0px 0px  80px transparent,
   0px 0px  120px transparent;
 }
+
+
+.logo button{
+ 
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    color: white;
+    justify-content: flex-end;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.logo button:hover{
+  border-bottom: 2px solid whitesmoke;
+}
+.navbarSingleLink {
+  padding: 0px 3rem;
+}
+
+.navbarSingleLink{
+  display:inline-block;
+  backface-visibility: hidden;
+  vertical-align: middle;
+  position:relative;
+  box-shadow: 0 0 1px rgba(0,0,0,0);
+  transform: translateZ(0);
+  transition-duration: .3s;
+  transition-property:transform;
+  cursor: pointer;
+}
