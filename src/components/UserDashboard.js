@@ -10,6 +10,7 @@ import {
   doc,
 } from 'firebase/firestore';
 import { db } from '../data/db.js';
+import './UserDashboard.css';
 
 const UserDashboard = ({ id, user }) => {
   console.log('ID:', id);
@@ -46,18 +47,15 @@ const UserDashboard = ({ id, user }) => {
 
   return (
     <>
-      <div>
-        <Button>
-          <NavLink to="/userdashboard/addnewvisit">Umów kolejną wizytę</NavLink>
-        </Button>
+      <div className='dashboard'>
         <div>
-          <h3>Twoje wizyty:</h3>
-          <div>
+          <h3 className='yourVisits'>Twoje wizyty:</h3>
+          <div className='visits'>
             {visits.map((visit, i) => {
               let timestamp = visit.date.seconds;
               let serviceDate = new Date(timestamp * 1000);
               return (
-                <div key={Math.random(timestamp)}>
+                <div className='singleVisit' key={Math.random(timestamp)}>
                   <div>
                     <p>
                       Data: {serviceDate.getFullYear()}/0{serviceDate.getMonth() + 1}/
@@ -67,12 +65,15 @@ const UserDashboard = ({ id, user }) => {
                       Godzina: {serviceDate.getHours()}:{serviceDate.getMinutes()}0
                     </p>
                     <p>Pakiet: {visit.package}</p>
-                    <Button onClick={() => deleteVisit(i)}>Anuluj wizytę</Button>
-                    <hr />
+                    <Button className='cancelButton' onClick={() => deleteVisit(i)}>Anuluj wizytę</Button>
                   </div>
                 </div>
+
               );
             })}
+            <Button className='visitButton'>
+              <NavLink to="/userdashboard/addnewvisit" className='visitText'>Umów kolejną wizytę</NavLink>
+            </Button>
           </div>
         </div>
       </div>
