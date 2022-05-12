@@ -14,27 +14,32 @@ const Contact = () => {
             </div>
           </div>
 
-          <div class="contact_msg">
-            <h3 class="title">napisz do nas</h3>
+          <div className="contact_msg">
+            <h3 className="title">napisz do nas</h3>
 
-            <div class="form_fild">
-              <div class="input_group">
-                <input name="name" type="text" class="input" required />
-                <label class="placeholder">twoje imie</label>
+            <div className="form_fild">
+              <div className="input_group">
+                <input name="name" type="text" className="input" required />
+                <label className="placeholder">twoje imie</label>
               </div>
 
-              <div class="input_group">
-                <input name="email" type="text" class="input" required />
-                <label class="placeholder">twój adres email</label>
+              <div className="input_group">
+                <input name="email" type="text" className="input" required />
+                <label className="placeholder">twój adres email</label>
               </div>
 
-              <div class="input_group">
-                <textarea name="message" class="input input_textarea " rows="6" required></textarea>
-                <label class="placeholder textarea">napisz do nas wiadomość</label>
+              <div className="input_group">
+                <textarea
+                  name="message"
+                  className="input input_textarea "
+                  rows="6"
+                  required
+                ></textarea>
+                <label className="placeholder textarea">napisz do nas wiadomość</label>
               </div>
 
-              <div class="input_group">
-                <input type="submit" class="btn" value="Wyślij" />
+              <div className="input_group">
+                <input type="submit" className="btn" value="Wyślij" />
               </div>
             </div>
           </div>
