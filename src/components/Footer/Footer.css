@@ -1,0 +1,75 @@
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer p{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.socialLinks
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.socialLinks .logoGitHub
+{
+    transform: scale(0.9);
+    transition: 0.4s ease-in;
+    margin: 0 0.5rem;
+    height: 2.5em;
+    width: 7em;
+}
+.logoGitHub 
+{
+    color: black;
+    transition: 0.4s ease-in;
+}
+.logoGitHub 
+{
+    color: black;
+    font-size: 2rem;
+    transform: translateY(1px);
+    transition: 0.2s ease-in;
+}
+.logoGitHub:hover
+{
+    transform: scale(1.1);
+}
+.logoGitHub:hover , .logoGitHub:hover .icon
+{
+    color:#98b021;
+}
+
+.socialLinks a{
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+
+.circle{
+    color: black;
+    font-size: 1rem;
+    transform: translateY(1px);
+    transition: 0.2s ease-in;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.icon{
+    color: black;
+    font-size: 2rem;
+    transform: translateY(1px);
+    transition: 0.2s ease-in;
+}

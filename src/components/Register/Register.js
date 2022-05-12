@@ -6,6 +6,8 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../../data/db';
 import { useNavigate } from 'react-router-dom';
+import './Register.css';
+import Logo from '../NavbarElements/Logo.js';
 
 const registerUserAuth = async (email, password) => {
   // todo nazwa auth user
@@ -64,40 +66,55 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={(e) => handlerRegister(e)}>
-      <label htmlFor="name">Imię: </label>
-      <input
-        type="text"
-        id="name"
-        value={nameInput}
-        onChange={(e) => setNameInput(e.target.value)}
-      />
+    <div className="bodyRegister">
+      <div className="register-panel">
+        <div className="leftSideBox">
+          <Logo />
+        </div>
+        <div className="rightSide">
+          <h2>Zarejestruj się</h2>
+          <p>załó konto by umówić się na wizytę</p>
+          <form onSubmit={(e) => handlerRegister(e)}>
+            <label htmlFor="name"></label>
+            <input
+              placeholder="Imię"
+              type="text"
+              id="name"
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+            />
 
-      <label htmlFor="lastName">Nazwisko: </label>
-      <input
-        type="text"
-        id="lastName"
-        value={lastNameInput}
-        onChange={(e) => setLastNameInput(e.target.value)}
-      />
+            <label htmlFor="lastName"></label>
+            <input
+              placeholder="Nazwisko"
+              type="text"
+              id="lastName"
+              value={lastNameInput}
+              onChange={(e) => setLastNameInput(e.target.value)}
+            />
 
-      <label htmlFor="email">Email: </label>
-      <input
-        type="email"
-        id="email"
-        value={emailInput}
-        onChange={(e) => setEmailInput(e.target.value)}
-      />
+            <label htmlFor="email"></label>
+            <input
+              placeholder="Email"
+              type="email"
+              id="email"
+              value={emailInput}
+              onChange={(e) => setEmailInput(e.target.value)}
+            />
 
-      <label htmlFor="password">Hasło: </label>
-      <input
-        type="password"
-        id="password"
-        value={passwordInput}
-        onChange={(e) => setPasswordInput(e.target.value)}
-      />
-      <Button buttonText={'Zarejestruj'} />
-    </form>
+            <label htmlFor="password"></label>
+            <input
+              placeholder="Hasło"
+              type="password"
+              id="password"
+              value={passwordInput}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
+            <Button buttonText={'Zarejestruj'} />
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 
