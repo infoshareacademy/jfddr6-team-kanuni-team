@@ -8,6 +8,7 @@ import { arrayUnion, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../../data/db';
 import { useNavigate } from 'react-router-dom';
 import { Prices } from '../Prices/Prices';
+import './AddNewVisit.css';
 
 const AddNewVisit = (userUid) => {
   const [selectedDayFromDayPicker, setSelectedDay] = useState(''); //dzień wybrany z komponentu DayPicker
@@ -76,79 +77,82 @@ const AddNewVisit = (userUid) => {
 
   return (
     <>
-      <h1>Umów się na czyszczonko</h1>
-      {/* jeżeli klikneliśmy podsumowanie to nie wyświetla pickerów */}
-      {!summary && (
-        <DayPicker
-          mode="single"
-          selected={selectedDayFromDayPicker}
-          disabled={disabledDays}
-          from={2022}
-          toYear={2023}
-          onSelect={handlerClick}
-          captionLayout="dropdown"
-        />
-      )}
-
-      {/* Jeśli wybierzemy dzień to pojawia się formularz wyboru godziny i pakietu   */}
-      {selectedDayFromDayPicker && (
-        <>
+      <div className="Visitbox">
+        <div className="dayPicer">
+          <h1>Umów się na czyszczonko</h1>
+          {/* jeżeli klikneliśmy podsumowanie to nie wyświetla pickerów */}
           {!summary && (
-            <form>
-              <label htmlFor="time">Wybierz godzinę</label>
-              <select
-                name="time"
-                id="time"
-                onChange={(e) => setTimeInput(e.target.value)}
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Wybierz godzinę
-                </option>
-                <option value="8:00">8:00</option>
-                <option value="11:00">11:00</option>
-                <option value="14:00">14:00</option>
-              </select>
-
-              <label htmlFor="package">Wybierz pakiet</label>
-              <select
-                name="package"
-                id="package"
-                onChange={(e) => setPackageInput(e.target.value)}
-                defaultValue=""
-              >
-                <option value="" disabled>
-                  Wybierz pakiet
-                </option>
-                <option value="Pakiet Silver">Pakiet Silver 99zł</option>
-                <option value="Pakiet Gold">Pakiet Gold 249zł</option>
-                <option value="Pakiet Platinum">Pakiet Platinum 399zł</option>
-                <option value="Pakiet Master">Pakiet Master 499zł</option>
-              </select>
-
-              {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
-              {timeInput && packageInput ? (
-                <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
-              ) : null}
-            </form>
+            <DayPicker
+              mode="single"
+              selected={selectedDayFromDayPicker}
+              disabled={disabledDays}
+              from={2022}
+              toYear={2023}
+              onSelect={handlerClick}
+              captionLayout="dropdown"
+            />
           )}
 
-          {/* po kliknięciu na button podsumowania flaga summary przestawi się na true i wyświetli się podsumowanie */}
-          {summary && (
-            <div>
-              <h2>Podsumowanie umówienia wizyty:</h2>
-              {/*  poniżej metoda toLocaleDateString() zamienia obj date na stringa np na 11.05.2022 */}
-              <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
-              <p>{`Godzina: ${timeInput}`}</p>
-              <p>{`Pakiet: ${packageInput}`}</p>
-              <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
-              <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} />
-            </div>
-          )}
-        </>
-      )}
+          {/* Jeśli wybierzemy dzień to pojawia się formularz wyboru godziny i pakietu   */}
+          {selectedDayFromDayPicker && (
+            <>
+              {!summary && (
+                <form>
+                  <label htmlFor="time">Wybierz godzinę</label>
+                  <select
+                    name="time"
+                    id="time"
+                    onChange={(e) => setTimeInput(e.target.value)}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Wybierz godzinę
+                    </option>
+                    <option value="8:00">8:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="14:00">14:00</option>
+                  </select>
 
-      <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
+                  <label htmlFor="package">Wybierz pakiet</label>
+                  <select
+                    name="package"
+                    id="package"
+                    onChange={(e) => setPackageInput(e.target.value)}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Wybierz pakiet
+                    </option>
+                    <option value="Pakiet Silver">Pakiet Silver 99zł</option>
+                    <option value="Pakiet Gold">Pakiet Gold 249zł</option>
+                    <option value="Pakiet Platinum">Pakiet Platinum 399zł</option>
+                    <option value="Pakiet Master">Pakiet Master 499zł</option>
+                  </select>
+
+                  {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
+                  {timeInput && packageInput ? (
+                    <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
+                  ) : null}
+                </form>
+              )}
+
+              {/* po kliknięciu na button podsumowania flaga summary przestawi się na true i wyświetli się podsumowanie */}
+              {summary && (
+                <div>
+                  <h2>Podsumowanie umówienia wizyty:</h2>
+                  {/*  poniżej metoda toLocaleDateString() zamienia obj date na stringa np na 11.05.2022 */}
+                  <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
+                  <p>{`Godzina: ${timeInput}`}</p>
+                  <p>{`Pakiet: ${packageInput}`}</p>
+                  <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
+                  <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} />
+                </div>
+              )}
+            </>
+          )}
+        </div>
+        <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
+      </div>
     </>
   );
 };
