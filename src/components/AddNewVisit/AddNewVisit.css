@@ -1,0 +1,73 @@
+.Visitbox{
+    
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2rem;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
+}
+.rdp-months{
+    align-self: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.dayPicer h1{
+    color: white;
+    font-weight: 200;
+    background-color: #98b021;
+    margin: 0;
+    padding: 1rem;
+    letter-spacing: 2px;
+}
+
+
+.dayPicer form{
+    margin: 0 auto;
+    align-content: center;
+    justify-content: center;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.dayPicer label{
+    margin: 1rem 0;
+    align-content: center;
+    justify-content: center;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+    font-size: 1.2rem;
+
+}
+
+.Visitbox button{
+    background-color: transparent;
+    cursor: pointer;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-self: end;
+    margin-top: 32px;
+    border-radius: 3px;
+    padding: 10px 35px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+}
+.Visitbox button:hover{
+    background-color: #98b021;
+    color: white;
+}

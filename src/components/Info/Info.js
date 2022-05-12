@@ -23,10 +23,7 @@ const Info = () => {
           </p>
         </div>
         <div class="contact3">
-          <p>
-            Nie wiem co tu dać <br />
-            :onlysadreactions:
-          </p>
+          <p>Czekamy na was</p>
         </div>
         <div class="contact4">
           <iframe
