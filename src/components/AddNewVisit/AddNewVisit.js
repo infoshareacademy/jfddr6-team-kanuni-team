@@ -68,6 +68,7 @@ const AddNewVisit = (userUid) => {
   //zmienna potrzebna do disable`owania dni w komponencie DayPicker
   const disabledDays = [{ from: new Date(2022, 1, 1), to: new Date() }];
 
+  //przekierowanie do panelu klienta po wciśnięciu buttona 'Wróć do panelu klienta'
   const routeToUserDashboard = () => {
     navigate('/userdashboard');
   };
@@ -75,7 +76,7 @@ const AddNewVisit = (userUid) => {
   return (
     <>
       <h1>Umów się na czyszczonko</h1>
-
+      {/* jeżeli klikneliśmy podsumowanie to nie wyświetla pickerów */}
       {!summary && (
         <DayPicker
           mode="single"
