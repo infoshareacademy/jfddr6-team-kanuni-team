@@ -61,9 +61,15 @@ const Login = ({ isAuth }) => {
         <Button buttonText={'Zaloguj'} />
       </form>
       <h2>
-        Nie masz konta?{' '}
+        Nie masz konta?
         <Button>
           <NavLink to="/register">Zarejestruj się</NavLink>
+        </Button>
+      </h2>
+      <h2>
+        Zapomniałeś hasła?
+        <Button>
+          <NavLink to="/forgotpassword">Zresetuj hasło</NavLink>
         </Button>
       </h2>
     </>
