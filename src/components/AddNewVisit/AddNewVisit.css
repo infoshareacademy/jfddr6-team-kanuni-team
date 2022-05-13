@@ -72,10 +72,31 @@
 
 #sendButton {
   margin: 0 auto;
-  width: 90%;
+  width: 40%;
   background-color: #98b021;
 }
 #sendButton:hover {
   background-color: #fff;
   color: #98b021;
+}
+
+#btnVisit{
+    background-color:#98b021;
+    color: white;
+  cursor: pointer;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-self: end;
+  margin-top: 32px;
+  border-radius: 3px;
+  padding: 10px 35px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: black;
+  letter-spacing: 2px;
+  text-decoration: none;
+
 }

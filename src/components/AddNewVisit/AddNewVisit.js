@@ -131,7 +131,7 @@ const AddNewVisit = (userUid) => {
 
                   {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
                   {timeInput && packageInput ? (
-                    <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
+                    <Button buttonText={'Podsumowanie'} onClick={summaryHandler} id={'btnVisit'} />
                   ) : null}
                 </form>
               )}
