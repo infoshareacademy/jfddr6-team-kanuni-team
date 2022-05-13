@@ -23,7 +23,7 @@ const Login = ({ isAuth }) => {
           alert(`Nie ma takiego użytkownika`);
           break;
         default:
-          alert(`Wystąpił błąd`);
+          alert(`Uzupełnij wszystkie wymagane dane`);
           break;
       }
     });
