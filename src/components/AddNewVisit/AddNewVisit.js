@@ -144,13 +144,14 @@ const AddNewVisit = (userUid) => {
                   <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
                   <p>{`Godzina: ${timeInput}`}</p>
                   <p>{`Pakiet: ${packageInput}`}</p>
-                  <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
-                  <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} />
+
+                  <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} id={'sendButton'} />
                 </div>
               )}
             </>
           )}
         </div>
+        <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
         <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
       </div>
     </>

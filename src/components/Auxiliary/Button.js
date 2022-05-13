@@ -1,5 +1,5 @@
-const Button = ({ buttonText, children, onClick, className }) => (
-  <button onClick={onClick} className={className}>
+const Button = ({ buttonText, children, onClick, className, id }) => (
+  <button onClick={onClick} className={className} id={id}>
     {buttonText || children}
   </button>
 );
