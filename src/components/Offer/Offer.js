@@ -10,8 +10,6 @@ const Offer = () => {
       <div className="aboutUs">
         <h3>Hej to my</h3>
         <Lorem />
-
-        <a href="/login">Umów się</a>
       </div>
       <div className="aboutBox">
         <h3>Myjnia</h3>
