@@ -46,6 +46,7 @@
 }
 
 .singleVisit p {
+    font-family: Lato;
     font-size: 0.8rem;
     font-weight: 300;
     text-transform: uppercase;
@@ -56,10 +57,7 @@
 
 }
 
-.singleVisit p:first-child {
-  font-weight: 900;
-  text-shadow: 0px 0px 3px rgba(24, 24, 24, 0.75);
-}
+
 
 .visitButton {
   text-transform: uppercase;
