@@ -1,14 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import Button from './Auxiliary/Button.js';
 import { useState, useEffect } from 'react';
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  updateDoc,
-  doc,
-} from 'firebase/firestore';
+import { collection, getDocs, query, where, updateDoc, doc } from 'firebase/firestore';
 import { db } from '../data/db.js';
 import './UserDashboard.css';
 
@@ -47,16 +40,16 @@ const UserDashboard = ({ id, user }) => {
 
   return (
     <>
-      <div className='dashboard'>
-        <div>
-          <h3 className='yourVisits'>Twoje wizyty:</h3>
-          <div className='visits'>
+      <div className="dashboard">
+        <div className="dashboardBox">
+          <div className="visits">
             {visits.map((visit, i) => {
               let timestamp = visit.date.seconds;
               let serviceDate = new Date(timestamp * 1000);
               return (
-                <div className='singleVisit' key={Math.random(timestamp)}>
-                  <div>
+                <div className="singleVisit" key={Math.random(timestamp)}>
+                  <h3>Twoje wizyty:</h3>
+                  <div className="singleVisitbox">
                     <p>
                       Data: {serviceDate.getFullYear()}/0{serviceDate.getMonth() + 1}/
                       {serviceDate.getDate()}
@@ -65,14 +58,17 @@ const UserDashboard = ({ id, user }) => {
                       Godzina: {serviceDate.getHours()}:{serviceDate.getMinutes()}0
                     </p>
                     <p>Pakiet: {visit.package}</p>
-                    <Button className='cancelButton' onClick={() => deleteVisit(i)}>Anuluj wizytę</Button>
+                    <Button className="cancelButton" onClick={() => deleteVisit(i)}>
+                      Anuluj wizytę
+                    </Button>
                   </div>
                 </div>
-
               );
             })}
-            <Button className='visitButton'>
-              <NavLink to="/userdashboard/addnewvisit" className='visitText'>Umów kolejną wizytę</NavLink>
+            <Button className="visitButton">
+              <NavLink to="/userdashboard/addnewvisit" className="visitText">
+                Umów kolejną wizytę
+              </NavLink>
             </Button>
           </div>
         </div>
