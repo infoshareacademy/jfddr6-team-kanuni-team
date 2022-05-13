@@ -1,122 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
-.yourVisits {
-  font-size: 1.7rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 3px;
+.visits h3 {
+    width: 100%;
+    margin:0 auto;
+    background-color: #98b021;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding:1rem 0;
+    border: 1px solid black;
+    text-align: center;
+}
+.dashboardBox{
+    margin: 0 auto;
+    width: 90%;
+    height: max-content;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
 
 .visits {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.803);
-  width: 50%;
-  padding: 2rem;
-  box-shadow: 8px 8px 24px 0px rgb(43, 43, 44);
-  border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 2rem;
+    border-radius: 3px;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
 }
 
 .singleVisit {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  background-color: #fff;
-  border-radius: 2px;
-  font-size: 12px;
-  box-shadow: 5px 5px 2px;
-  width: 300px;
-  height: 200px;
-  margin: 15px;
-  background-image: url(../../public/sponge.png);
-  background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    border-radius: 3px;
+    font-size: 12px;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
 }
 
 .singleVisit p {
-  text-transform: uppercase;
-  font-weight: 400;
-  color: rgb(0, 0, 0);
-  text-shadow: 0px 0px 3px rgba(114, 114, 114, 0.75);
-  font-size: 0.8rem;
-  margin: 20px;
-  padding: 3px;
+    width: 15rem;
+    font-family: Lato;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    letter-spacing: 2px;
+    text-decoration: none;
+
 }
 
-.singleVisit p:first-child {
-  font-weight: 900;
-  text-shadow: 0px 0px 3px rgba(24, 24, 24, 0.75);
-}
+
 
 .visitButton {
-  text-transform: uppercase;
-  font-weight: bold;
-  border-style: none;
-  width: 300px;
-  height: 200px;
-  background-color: rgba(196, 22, 22, 0);
-  margin: 15px;
+    height: auto;
+    align-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-style: none;
+    background-color: rgba(196, 22, 22, 0);
+    margin: 15px;
 }
+
 
 .cancelButton {
-  align-self: flex-end;
-  cursor: pointer;
-  color: aliceblue;
-  font-family: Lato;
-  letter-spacing: 2px;
-  font-weight: 300;
-  font-size: smaller;
-  padding: 4px 10px;
-  background-color: rgb(46, 49, 44);
-  position: relative;
-  margin: 0 0 5px 100px;
-  box-shadow: 8px 8px 24px 0px rgb(30, 30, 31);
-  text-transform: uppercase;
-}
-
-.cancelButton:hover {
-  background-color: rgb(255, 92, 92);
-}
-
-.cancelButton:active {
-  background-color: rgb(219, 0, 0);
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 20px 0;
 }
 
 .visitText {
-  color: rgb(43, 43, 44);
-  display: block;
-  background-color: #fff;
-  font-size: 15px;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 8px 8px 24px 0px rgb(12, 12, 12);
-  outline: none;
-  text-decoration: none;
-  font-family: Lato;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: white;
+    background-color: #98b021;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 46px 22px;
+    box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
+
 }
 
-.visitText:hover {
-  color: rgb(43, 43, 44);
-  display: block;
-  background-color: rgb(127, 187, 30);
-  font-size: 15px;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 8px 8px 24px 0px rgb(12, 12, 12);
-  outline: none;
-  text-decoration: none;
+
+.singleVisitbox{
+    padding: 0.5rem 0.5rem;
+    justify-content: space-around;
+    display: flex;
+    border: 1px solid black;
 }
 
-.visitText:active {
-  color: rgb(43, 43, 44);
-  display: block;
-  background-color: rgb(94, 136, 27);
-  font-size: 15px;
-  padding: 25px;
-  border-radius: 5px;
-  box-shadow: 8px 8px 24px 0px rgb(12, 12, 12);
-  outline: none;
-  text-decoration: none;
+
+.singleVisitbox button p{
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin: 0 auto;
 }

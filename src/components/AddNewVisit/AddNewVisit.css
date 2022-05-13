@@ -8,10 +8,15 @@
   margin-top: 2rem;
   box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
 }
+
 .rdp-months {
   align-self: center;
   width: 100%;
   justify-content: center;
+}
+.dayPicer{
+  display: flex;
+  flex-direction: column;
 }
 
 .dayPicer h1 {
@@ -47,6 +52,7 @@
 }
 
 .Visitbox button {
+  order:1;
   background-color: transparent;
   cursor: pointer;
   width: 60%;
@@ -71,10 +77,51 @@
 
 #sendButton {
   margin: 0 auto;
-  width: 90%;
+  width: 40%;
   background-color: #98b021;
 }
 #sendButton:hover {
   background-color: #fff;
   color: #98b021;
+}
+
+#btnVisit{
+    background-color:#98b021;
+    color: white;
+  cursor: pointer;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-self: end;
+  margin-top: 32px;
+  border-radius: 3px;
+  padding: 10px 35px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: black;
+  letter-spacing: 2px;
+  text-decoration: none;
+
+}
+
+#backButton{
+  background-color: transparent;
+  cursor: pointer;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-self: end;
+  margin-top: 32px;
+  border-radius: 3px;
+  padding: 10px 35px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: black;
+  letter-spacing: 2px;
+  text-decoration: none;
+
 }

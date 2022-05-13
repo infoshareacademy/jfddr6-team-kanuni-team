@@ -23,9 +23,7 @@ const Login = ({ isAuth }) => {
           alert(`Nie ma takiego użytkownika`);
           break;
         default:
-          console.log(error.message);
           alert(`Uzupełnij wszystkie wymagane dane`);
-          console.log(error.message);
           break;
       }
     });

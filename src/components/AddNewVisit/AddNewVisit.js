@@ -36,7 +36,6 @@ const AddNewVisit = (userUid) => {
     //poniżej logika dodająca odpowiednią ilość milisekund do wybranego dnia w zależności od wybranej godziny aby można było w firebase zapisać godzinę umówionej wizyty
     const timeStampDatePlusHour = () => {
       if (timeInput === '8:00') {
-        console.log(timeStampDateSeconds + 28800000);
         return timeStampDateSeconds + 28800000;
       } else if (timeInput === '11:00') {
         return timeStampDateSeconds + 39600000;
@@ -92,7 +91,7 @@ const AddNewVisit = (userUid) => {
               captionLayout="dropdown"
             />
           )}
-
+          <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
           {/* Jeśli wybierzemy dzień to pojawia się formularz wyboru godziny i pakietu   */}
           {selectedDayFromDayPicker && (
             <>
@@ -131,14 +130,14 @@ const AddNewVisit = (userUid) => {
 
                   {/* jeśli mamy wybraną godzinę i pakiet to wyświetli się przycisk podsumowanie */}
                   {timeInput && packageInput ? (
-                    <Button buttonText={'Podsumowanie'} onClick={summaryHandler} />
+                    <Button buttonText={'Podsumowanie'} onClick={summaryHandler} id={'btnVisit'} />
                   ) : null}
                 </form>
               )}
 
               {/* po kliknięciu na button podsumowania flaga summary przestawi się na true i wyświetli się podsumowanie */}
               {summary && (
-                <div>
+                <div className="Visitbox">
                   <h2>Podsumowanie umówienia wizyty:</h2>
                   {/*  poniżej metoda toLocaleDateString() zamienia obj date na stringa np na 11.05.2022 */}
                   <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
@@ -146,13 +145,12 @@ const AddNewVisit = (userUid) => {
                   <p>{`Pakiet: ${packageInput}`}</p>
 
                   <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} id={'sendButton'} />
+                  <Button buttonText={'Cofnij'} onClick={backToVisitPick} id={'backButton'} />
                 </div>
               )}
             </>
           )}
         </div>
-        <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
-        <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
       </div>
     </>
   );
