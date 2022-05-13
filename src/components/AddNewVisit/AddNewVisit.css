@@ -68,3 +68,13 @@
   background-color: #98b021;
   color: white;
 }
+
+#sendButton {
+  margin: 0 auto;
+  width: 90%;
+  background-color: #98b021;
+}
+#sendButton:hover {
+  background-color: #fff;
+  color: #98b021;
+}
