@@ -36,7 +36,6 @@ const AddNewVisit = (userUid) => {
     //poniżej logika dodająca odpowiednią ilość milisekund do wybranego dnia w zależności od wybranej godziny aby można było w firebase zapisać godzinę umówionej wizyty
     const timeStampDatePlusHour = () => {
       if (timeInput === '8:00') {
-        console.log(timeStampDateSeconds + 28800000);
         return timeStampDateSeconds + 28800000;
       } else if (timeInput === '11:00') {
         return timeStampDateSeconds + 39600000;
