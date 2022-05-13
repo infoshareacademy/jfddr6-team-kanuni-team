@@ -1,4 +1,5 @@
-.singleVisit h3 {
+.visits h3 {
+    width: 100%;
     margin:0 auto;
     background-color: #98b021;
     font-size: 20px;
@@ -16,24 +17,31 @@
     text-align: center;
 }
 .dashboardBox{
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     height: 20rem;
     margin-top: 4rem;
-}
-.visits {
-    justify-content: space-around;
     display: flex;
     flex-direction: row;
-    margin: auto;
-    height: 15rem;
-    width: 70%;
+    justify-content: space-around;
+
+}
+
+.visits {
+    display: flex;
+    flex-direction: column;
+    /* margin: auto; */
+    /* height: 15rem; */
+    width: 50%;
     padding: 2rem;
     border-radius: 3px;
     box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
-
 }
+
 .singleVisit {
-    width: 70%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     border-radius: 3px;
     font-size: 12px;
     box-shadow: 2px 0 15px rgb(0 0 0 / 25%);
@@ -96,4 +104,5 @@
     justify-content: space-around;
     display: flex;
     border: 1px solid black;
+    width: 100%;
 }

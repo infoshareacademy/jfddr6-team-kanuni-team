@@ -43,12 +43,12 @@ const UserDashboard = ({ id, user }) => {
       <div className="dashboard">
         <div className="dashboardBox">
           <div className="visits">
+            <h3>Twoje wizyty:</h3>
             {visits.map((visit, i) => {
               let timestamp = visit.date.seconds;
               let serviceDate = new Date(timestamp * 1000);
               return (
                 <div className="singleVisit" key={Math.random(timestamp)}>
-                  <h3>Twoje wizyty:</h3>
                   <div className="singleVisitbox">
                     <p>
                       Data: {serviceDate.getFullYear()}/0{serviceDate.getMonth() + 1}/
@@ -65,12 +65,12 @@ const UserDashboard = ({ id, user }) => {
                 </div>
               );
             })}
-            <Button className="visitButton">
-              <NavLink to="/userdashboard/addnewvisit" className="visitText">
-                Umów kolejną wizytę
-              </NavLink>
-            </Button>
           </div>
+          <Button className="visitButton">
+            <NavLink to="/userdashboard/addnewvisit" className="visitText">
+              Umów kolejną wizytę
+            </NavLink>
+          </Button>
         </div>
       </div>
     </>
