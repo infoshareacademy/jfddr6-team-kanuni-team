@@ -91,7 +91,7 @@ const AddNewVisit = (userUid) => {
               captionLayout="dropdown"
             />
           )}
-
+          <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
           {/* Jeśli wybierzemy dzień to pojawia się formularz wyboru godziny i pakietu   */}
           {selectedDayFromDayPicker && (
             <>
@@ -137,7 +137,7 @@ const AddNewVisit = (userUid) => {
 
               {/* po kliknięciu na button podsumowania flaga summary przestawi się na true i wyświetli się podsumowanie */}
               {summary && (
-                <div>
+                <div className="Visitbox">
                   <h2>Podsumowanie umówienia wizyty:</h2>
                   {/*  poniżej metoda toLocaleDateString() zamienia obj date na stringa np na 11.05.2022 */}
                   <p>{`Dzień: ${selectedDayFromDayPicker.toLocaleDateString()}`}</p>
@@ -145,13 +145,12 @@ const AddNewVisit = (userUid) => {
                   <p>{`Pakiet: ${packageInput}`}</p>
 
                   <Button buttonText={'Wyślij'} onClick={sendVisitToFirebase} id={'sendButton'} />
+                  <Button buttonText={'Cofnij'} onClick={backToVisitPick} id={'backButton'} />
                 </div>
               )}
             </>
           )}
         </div>
-        <Button buttonText={'Cofnij'} onClick={backToVisitPick} />
-        <Button buttonText={'Wróć do panelu klienta'} onClick={routeToUserDashboard} />
       </div>
     </>
   );

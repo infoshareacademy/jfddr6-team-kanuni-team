@@ -1,5 +1,7 @@
 # jfddr6-team-kanuni-team
 
-Kolor granatowy rgba(110, 132, 179, 0.31);
-kolor przycisku rgba(237, 237, 237, 0.557);
-nspis rgba(245, 245, 245, 0.618);
+Cześć, w dużym skrócie robimy stronę myjni samochodowej (onepager) z możliwością rejestracji / logowania do
+panelu klienta, w którym:
+-możesz podejrzeć swoje zaplanowane wizyty
+-możesz umówić wizytę (wybór daty, godziny i usługi)
+-możesz anulować zaplanowaną wizytę
