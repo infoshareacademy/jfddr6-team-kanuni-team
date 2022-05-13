@@ -59,7 +59,7 @@ const UserDashboard = ({ id, user }) => {
                     </p>
                     <p>Pakiet: {visit.package}</p>
                     <Button className="cancelButton" onClick={() => deleteVisit(i)}>
-                      Anuluj wizytę
+                      <p> Anuluj wizytę</p>
                     </Button>
                   </div>
                 </div>

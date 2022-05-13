@@ -19,7 +19,7 @@
 .dashboardBox{
     margin: 0 auto;
     width: 80%;
-    height: 20rem;
+    height: max-content;
     margin-top: 4rem;
     display: flex;
     flex-direction: row;
@@ -110,4 +110,16 @@
     display: flex;
     border: 1px solid black;
     width: 100%;
+}
+
+
+.singleVisitbox button p{
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: black;
+    letter-spacing: 2px;
+    text-decoration: none;
+    margin: 0 auto;
 }
