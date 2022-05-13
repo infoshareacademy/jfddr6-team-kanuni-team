@@ -13,7 +13,6 @@ import { db } from '../data/db.js';
 import './UserDashboard.css';
 
 const UserDashboard = ({ id, user }) => {
-  console.log('ID:', id);
   const [visits, setVisits] = useState([]);
 
   const getVisits = async () => {
@@ -35,13 +34,11 @@ const UserDashboard = ({ id, user }) => {
   const deleteVisit = async (index) => {
     const visitRef = doc(db, 'users', id);
     const filteredVisits = visits.filter((_, i) => {
-      console.log('ID, index', id, index);
       return i !== index;
     });
     await updateDoc(visitRef, {
       visits: filteredVisits,
     });
-
     getVisits();
   };
 
