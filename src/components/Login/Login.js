@@ -24,7 +24,7 @@ const Login = ({ isAuth }) => {
           break;
         default:
           console.log(error.message);
-          alert(`Wystąpił błąd`);
+          alert(`Uzupełnij wszystkie wymagane dane`);
           console.log(error.message);
           break;
       }
